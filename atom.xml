@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qingyaxian.me/"/>
-  <updated>2017-04-05T13:08:21.321Z</updated>
+  <updated>2017-04-06T01:31:15.152Z</updated>
   <id>http://qingyaxian.me/</id>
   
   <author>
@@ -16,13 +16,43 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>hexo 博客上传至github失败</title>
+    <link href="http://qingyaxian.me/2017/04/06/hexo-%E5%8D%9A%E5%AE%A2%E4%B8%8A%E4%BC%A0%E8%87%B3github%E5%A4%B1%E8%B4%A5/"/>
+    <id>http://qingyaxian.me/2017/04/06/hexo-博客上传至github失败/</id>
+    <published>2017-04-06T00:55:32.000Z</published>
+    <updated>2017-04-06T01:31:15.152Z</updated>
+    
+    <content type="html"><![CDATA[<p>  阳春三月，草长莺飞，实际上是指农历的三月。一年之计在于春，一日之计在于晨。在春天的早晨。我的博客居然更新不了，这真的是辜负了春光。我怎么能让这种事情发生呢？<br>我开启了博客解救之旅。在网上查的时候，针对这个问题主要分为以下几种答案。</p>
+<ol>
+<li>万能的重启大法：1）删除 deploy.git文件夹 2）hexo-clean 3）hexo g 4）hexo d</li>
+<li>是不是打开方式不对呢？ 不要用windows.cmd运行环境，请用gitbash 的cmd运行环境来提交。</li>
+<li>是不是配置文件处理差错？重新配置hexo 的config文件，把repo的https，Address换成: SSH的格式 ：git@github.com:Username/Address<br>我以前明明可以成功上传的，为啥要我重新配置？我屡败屡战，尝试了1，2种解决方案后，耐心地饱含深情地试了第3种。然后我经历了一下心路历程（过程）：<br>一开始，直接换了repository 地址，还是报错，错误代码大概意思是说，把代码上传到github的请求被拒绝了，让我看看我的SSH keys是不是合法的。<br>也是呗，要是是个人知道我的URL就可以修改我的代码，那我的博客不就变成公共的了！那我的隐私在哪里！所以肯定要进行安全验证嘛！！！我github博客的门，得给一把钥匙给我现在的电脑才行，这个钥匙就是SSH。我就又开始搜了，为啥我的电脑没有钥匙？那我以前的代码咋传的？我以前的代码果然不安全啊！！！     果断在本机上创建了本地SSH key，又在我的github账号中把这个SSH key贴上去了，果断的给自己的GitHub加了一把新钥匙。这就意味着，我这台电脑上传代码是合法的了。在经历了这么多的风风雨雨以后，我重新hexo g ,hexo d.  Finally!!!!!搞定了。<br>这个故事告诉我们：你以前没有问题，不代表你以后不会出错。遇到问题，要想各种办法解决。每个办法都试一试，因为你不试就永远不会知道真相。哈哈哈哈~~<br>配一张自拍照压压惊~<br><img src="/img/0406.png" alt="0406.png"></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;  阳春三月，草长莺飞，实际上是指农历的三月。一年之计在于春，一日之计在于晨。在春天的早晨。我的博客居然更新不了，这真的是辜负了春光。我怎么能让这种事情发生呢？&lt;br&gt;我开启了博客解救之旅。在网上查的时候，针对这个问题主要分为以下几种答案。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;万能的
+    
+    </summary>
+    
+    
+      <category term="ssh" scheme="http://qingyaxian.me/tags/ssh/"/>
+    
+      <category term="问题" scheme="http://qingyaxian.me/tags/%E9%97%AE%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
     <title>人间四月天</title>
     <link href="http://qingyaxian.me/2017/04/05/%E4%BA%BA%E9%97%B4%E5%9B%9B%E6%9C%88%E5%A4%A9/"/>
     <id>http://qingyaxian.me/2017/04/05/人间四月天/</id>
     <published>2017-04-05T09:00:06.000Z</published>
-    <updated>2017-04-05T13:08:21.321Z</updated>
+    <updated>2017-04-06T01:28:07.711Z</updated>
     
-    <content type="html"><![CDATA[<p>—林徽因<br>我说你是人间的四月天<br>笑声点亮了四面风<br>轻灵在春的光焰中交舞着变换。<br>你是四月早天里的云烟。<br>黄昏吹着风的软，星子在无意中闪，细雨点洒在花前。<br>那轻。那娉婷。你是。鲜艳。<br>百花的冠冕你戴着，你是天真，庄严，你是夜夜的月圆。<br>雪化后那片鹅黄，你象新鲜初放的绿。<br>你是柔嫩喜悦。搜索<br>水光浮动着你梦期待中的白莲。<br>你是一树一树的花开，是燕在梁间呢喃。<br>你是爱，是暖，是希望。<br>你是人间的四月天。<br> <img src="/img/xiao.png" alt="xiao.png"></p>
+    <content type="html"><![CDATA[<p>—林徽因<br>我说你是人间的四月天<br>笑声点亮了四面风<br>轻灵在春的光焰中交舞着变换。<br>你是四月早天里的云烟。<br>黄昏吹着风的软，星子在无意中闪，细雨点洒在花前。<br>那轻。那娉婷。你是。鲜艳。<br>百花的冠冕你戴着，你是天真，庄严，你是夜夜的月圆。<br>雪化后那片鹅黄，你像新鲜初放的绿。<br>你是柔嫩喜悦。<br>水光浮动着你梦期待中的白莲。<br>你是一树一树的花开，是燕在梁间呢喃。<br>你是爱，是暖，是希望。<br>你是人间的四月天。<br> <img src="/img/xiao.png" alt="xiao.png"></p>
 ]]></content>
     
     <summary type="html">
