@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qingyaxian.me/"/>
-  <updated>2017-04-06T01:31:15.152Z</updated>
+  <updated>2017-04-10T08:34:40.710Z</updated>
   <id>http://qingyaxian.me/</id>
   
   <author>
@@ -14,6 +14,68 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一个程序媛的自我修养</title>
+    <link href="http://qingyaxian.me/2017/04/10/%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F%E5%AA%9B%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/"/>
+    <id>http://qingyaxian.me/2017/04/10/一个程序媛的自我修养/</id>
+    <published>2017-04-10T06:55:37.000Z</published>
+    <updated>2017-04-10T08:34:40.710Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="What-is-程序媛？"><a href="#What-is-程序媛？" class="headerlink" title="What is 程序媛？"></a>What is 程序媛？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">  var  程序媛=&#123;</div><div class="line">  name：&quot;小仙女&quot; ，    //a girl name</div><div class="line">  gender:&quot;female&quot;  ，  //是个女的！这个非常重要！！！！</div><div class="line">  look: &quot;beautiful&quot;，//长得好看也非常重要！</div><div class="line">  major:&quot;no limit&quot;，  //专业不重要，反正会编程就行</div><div class="line">  language: [&quot;English&quot;,&quot;Chinese&quot;,&quot;Chinglish&quot;,&quot;c&quot;,&quot;c++&quot;,&quot;Python&quot;,&quot;java&quot;,&quot;JavaScript&quot;,&quot;c#&quot;,...]，</div><div class="line">  skills: [&quot;抗压&quot;，&quot;脑子快&quot;，&quot;身体好&quot;，&quot;脾气好&quot;]，</div><div class="line">  programming()&#123;</div><div class="line">   //喜欢写代码是一种很重要的属性！</div><div class="line">  alert(&apos;我爱写代码！&apos;);</div><div class="line">  &#125;</div><div class="line">  learning()&#123;</div><div class="line">  //热爱学习（遇到问题得解决啊）</div><div class="line">  if(bug)&#123;</div><div class="line">  if(!onlineSearching())//网上搜不到答案</div><div class="line">  lookingupBooks();//才去书上找</div><div class="line">  &#125;</div><div class="line">  &#125;</div><div class="line">  //以及N种技能和方法！！！！此处省略1万行操作技能</div><div class="line">  &#125;；</div><div class="line"></div><div class="line">##     Why do I want to be a 程序媛？</div><div class="line"></div><div class="line"> 我长得好看又聪明又有一个女生的名字又是个女的又热爱写代码，不当程序媛简直暴殄天物！为了实现资源的及优化，我必须去当一个程序媛！</div></pre></td></tr></table></figure>
+<p> var 卿雅娴=new 程序媛();<br> 卿雅娴.advantages=’乐观开朗，爱唱歌跳舞，爱运动，…’;<br>```</p>
+<h2 id="How-can-I-be-a-good-程序媛？"><a href="#How-can-I-be-a-good-程序媛？" class="headerlink" title="How can I be a good 程序媛？"></a>How can I be a good 程序媛？</h2><h3 id="1-基础要稳"><a href="#1-基础要稳" class="headerlink" title="1. 基础要稳"></a>1. 基础要稳</h3><p>一个程序媛的基本功是：</p>
+<ul>
+<li>计算机基础</li>
+<li>数据库</li>
+<li>编程语言语法</li>
+<li>数据结构<br>很庆幸，本科的时候都学了，只是有没有还给老师就不知道了。所以，第一步我还是要复习 复习 巩固 巩固。</li>
+</ul>
+<h3 id="2-参与实践"><a href="#2-参与实践" class="headerlink" title="2. 参与实践"></a>2. 参与实践</h3><p>成为一个 优秀 的程序媛，需要不断的实践。通过做一些小项目或者大项目（如果有机会的话）来锻炼自己的逻辑思维能力，和代码实践能力。我hin努力地在往这个方向发展啊！C语言程序设计，C#程序设计，Java程序设计，JavaScript程序设计，至少这些书我都有！程序设不设计的出来，我就无法保证了。不能这样子.<br><strong>(严肃脸)我要<del>贱贱地</del>渐渐地在实践中成长！</strong></p>
+<h3 id="3-勤于思考"><a href="#3-勤于思考" class="headerlink" title="3. 勤于思考"></a>3. 勤于思考</h3><p>假设研究生导师的项目有了，老师也给我们布置任务了，任务差强人意的交差了。但是居然<strong>被嫌弃</strong>：算法复杂度太高了，代码结构太乱了，写的代码完全是<strong>狗屎</strong>！<br>这个说明：</p>
+<ul>
+<li>编程习惯不好</li>
+<li>懒得思考</li>
+<li>懒</li>
+<li>懒</li>
+</ul>
+<p>就是要多思考，争取每一步都是最优的。代码结构乱？那么我们就要好好看看规范：<br>1.谷歌的各种语言的编码规范：<a href="https://github.com/google/styleguide" target="_blank" rel="external">https://github.com/google/styleguide</a><br>2.接受大牛们的安利：<a href="http://www.tuicool.com/articles/ABzMnqR" target="_blank" rel="external">http://www.tuicool.com/articles/ABzMnqR</a><br>3.掌握好的编码习惯和命名习惯</p>
+<h3 id="4-热爱学习"><a href="#4-热爱学习" class="headerlink" title="4.热爱学习"></a>4.热爱学习</h3><p>世界上要学习的东西太多了。虽然我们的知识有限，但是我们可以不断充电。不怕遇到困难，不怕遇到未知，静下心来，好好学。谁叫我们脾气好呢?<br>长得好看，热爱学习，心地善良的女程序员才是一个真正的程序媛！</p>
+<h3 id="5-热爱生活"><a href="#5-热爱生活" class="headerlink" title="5.热爱生活"></a>5.热爱生活</h3> <a id="more"></a>
+<p>写代码耗费脑力，在某些时刻可能需要长期坐在电脑前面。这样会导致颈椎病、肩周炎、鼠标手等疾病。此时，需要我们热爱生活，合理调节。有热爱的体育运动、有一些别的业余爱好，会让我们的生活更美好一些~~~</p>
+<p><img src="http://olthm6a9y.bkt.clouddn.com/IMG_20170410_144730.jpg" alt="1.png"></p>
+<p> 希望自己可以努力成长，好好学习，成为一名真的程序媛。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;What-is-程序媛？&quot;&gt;&lt;a href=&quot;#What-is-程序媛？&quot; class=&quot;headerlink&quot; title=&quot;What is 程序媛？&quot;&gt;&lt;/a&gt;What is 程序媛？&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;  var  程序媛=&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  name：&amp;quot;小仙女&amp;quot; ，    //a girl name&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  gender:&amp;quot;female&amp;quot;  ，  //是个女的！这个非常重要！！！！&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  look: &amp;quot;beautiful&amp;quot;，//长得好看也非常重要！&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  major:&amp;quot;no limit&amp;quot;，  //专业不重要，反正会编程就行&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  language: [&amp;quot;English&amp;quot;,&amp;quot;Chinese&amp;quot;,&amp;quot;Chinglish&amp;quot;,&amp;quot;c&amp;quot;,&amp;quot;c++&amp;quot;,&amp;quot;Python&amp;quot;,&amp;quot;java&amp;quot;,&amp;quot;JavaScript&amp;quot;,&amp;quot;c#&amp;quot;,...]，&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  skills: [&amp;quot;抗压&amp;quot;，&amp;quot;脑子快&amp;quot;，&amp;quot;身体好&amp;quot;，&amp;quot;脾气好&amp;quot;]，&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  programming()&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   //喜欢写代码是一种很重要的属性！&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  alert(&amp;apos;我爱写代码！&amp;apos;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  learning()&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  //热爱学习（遇到问题得解决啊）&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  if(bug)&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  if(!onlineSearching())//网上搜不到答案&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  lookingupBooks();//才去书上找&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  //以及N种技能和方法！！！！此处省略1万行操作技能&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;；&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;##     Why do I want to be a 程序媛？&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; 我长得好看又聪明又有一个女生的名字又是个女的又热爱写代码，不当程序媛简直暴殄天物！为了实现资源的及优化，我必须去当一个程序媛！&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt; var 卿雅娴=new 程序媛();&lt;br&gt; 卿雅娴.advantages=’乐观开朗，爱唱歌跳舞，爱运动，…’;&lt;br&gt;```&lt;/p&gt;
+&lt;h2 id=&quot;How-can-I-be-a-good-程序媛？&quot;&gt;&lt;a href=&quot;#How-can-I-be-a-good-程序媛？&quot; class=&quot;headerlink&quot; title=&quot;How can I be a good 程序媛？&quot;&gt;&lt;/a&gt;How can I be a good 程序媛？&lt;/h2&gt;&lt;h3 id=&quot;1-基础要稳&quot;&gt;&lt;a href=&quot;#1-基础要稳&quot; class=&quot;headerlink&quot; title=&quot;1. 基础要稳&quot;&gt;&lt;/a&gt;1. 基础要稳&lt;/h3&gt;&lt;p&gt;一个程序媛的基本功是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;计算机基础&lt;/li&gt;
+&lt;li&gt;数据库&lt;/li&gt;
+&lt;li&gt;编程语言语法&lt;/li&gt;
+&lt;li&gt;数据结构&lt;br&gt;很庆幸，本科的时候都学了，只是有没有还给老师就不知道了。所以，第一步我还是要复习 复习 巩固 巩固。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;2-参与实践&quot;&gt;&lt;a href=&quot;#2-参与实践&quot; class=&quot;headerlink&quot; title=&quot;2. 参与实践&quot;&gt;&lt;/a&gt;2. 参与实践&lt;/h3&gt;&lt;p&gt;成为一个 优秀 的程序媛，需要不断的实践。通过做一些小项目或者大项目（如果有机会的话）来锻炼自己的逻辑思维能力，和代码实践能力。我hin努力地在往这个方向发展啊！C语言程序设计，C#程序设计，Java程序设计，JavaScript程序设计，至少这些书我都有！程序设不设计的出来，我就无法保证了。不能这样子.&lt;br&gt;&lt;strong&gt;(严肃脸)我要&lt;del&gt;贱贱地&lt;/del&gt;渐渐地在实践中成长！&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;3-勤于思考&quot;&gt;&lt;a href=&quot;#3-勤于思考&quot; class=&quot;headerlink&quot; title=&quot;3. 勤于思考&quot;&gt;&lt;/a&gt;3. 勤于思考&lt;/h3&gt;&lt;p&gt;假设研究生导师的项目有了，老师也给我们布置任务了，任务差强人意的交差了。但是居然&lt;strong&gt;被嫌弃&lt;/strong&gt;：算法复杂度太高了，代码结构太乱了，写的代码完全是&lt;strong&gt;狗屎&lt;/strong&gt;！&lt;br&gt;这个说明：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;编程习惯不好&lt;/li&gt;
+&lt;li&gt;懒得思考&lt;/li&gt;
+&lt;li&gt;懒&lt;/li&gt;
+&lt;li&gt;懒&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;就是要多思考，争取每一步都是最优的。代码结构乱？那么我们就要好好看看规范：&lt;br&gt;1.谷歌的各种语言的编码规范：&lt;a href=&quot;https://github.com/google/styleguide&quot;&gt;https://github.com/google/styleguide&lt;/a&gt;&lt;br&gt;2.接受大牛们的安利：&lt;a href=&quot;http://www.tuicool.com/articles/ABzMnqR&quot;&gt;http://www.tuicool.com/articles/ABzMnqR&lt;/a&gt;&lt;br&gt;3.掌握好的编码习惯和命名习惯&lt;/p&gt;
+&lt;h3 id=&quot;4-热爱学习&quot;&gt;&lt;a href=&quot;#4-热爱学习&quot; class=&quot;headerlink&quot; title=&quot;4.热爱学习&quot;&gt;&lt;/a&gt;4.热爱学习&lt;/h3&gt;&lt;p&gt;世界上要学习的东西太多了。虽然我们的知识有限，但是我们可以不断充电。不怕遇到困难，不怕遇到未知，静下心来，好好学。谁叫我们脾气好呢?&lt;br&gt;长得好看，热爱学习，心地善良的女程序员才是一个真正的程序媛！&lt;/p&gt;
+&lt;h3 id=&quot;5-热爱生活&quot;&gt;&lt;a href=&quot;#5-热爱生活&quot; class=&quot;headerlink&quot; title=&quot;5.热爱生活&quot;&gt;&lt;/a&gt;5.热爱生活&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="随笔，习惯" scheme="http://qingyaxian.me/tags/%E9%9A%8F%E7%AC%94%EF%BC%8C%E4%B9%A0%E6%83%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo 博客上传至github失败</title>
@@ -109,23 +171,25 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>css 到底是什么鬼？</title>
     <link href="http://qingyaxian.me/2017/03/02/css-%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88%E9%AC%BC%EF%BC%9F/"/>
     <id>http://qingyaxian.me/2017/03/02/css-到底是什么鬼？/</id>
-    <published>2017-03-02T06:27:47.398Z</published>
-    <updated>2017-04-05T09:39:51.009Z</updated>
+    <published>2017-03-02T06:27:47.000Z</published>
+    <updated>2017-04-10T06:56:44.791Z</updated>
     
-    <content type="html"><![CDATA[<hr>
-<p>title: css 到底是什么鬼？<br>date: 2017-03-02 14:27:47<br>tags: [技术,前端] —<br>  作为一名程序媛，可能做起项目来喜欢直接上手。做网页时，我们可能习惯在网上直接下载已有的好看的CSS模板再对其进行修改，或者是直接用BootStrap的框架，来进行网页的组件式搭建。我们习惯于“拿来主义”，这是网络大环境下给我们带来的便利，也降低了很多事情的门槛。学会使用工具，是一种好的素质，能有效解决问题，不管黑猫白猫能抓住老鼠就是好猫，这是邓爷爷说过的话，我，曾深以为然。<br>做项目时自然是想着快速解决问题就好，但是学东西，我认为不是这样。如果你想真正加入一个领域或者一个行业，你需要学习很多的新的东西，而学习需要基础，前端所有的基础源于html,一种编写网页的脚本语言，而，CSS是什么鬼？ CSS（层叠 Style sheets）层叠的英文单词是啥来着？ Cascading，好的又复习了一下这个单词。<br>以前我们单纯的使用HTML来写网页时，需要改变某个部分的样式时，是这样的，比如是想给我网页中的一段字加黑。HTML中，我们会这样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p style=&quot;font-family:arial;color:red;font-size:20px; font-weight:bold;&quot;&gt;A paragraph.&lt;/p&gt; </div></pre></td></tr></table></figure><br>   </p><p style="font-family:arial;color:red;font-size:20px; font-weight:bold;">A paragraph.</p><br>   可是如果我想要文章中好多地方都加黑，我是不是要在所有加黑的段落前加一段这样的style=”?”这样会不会很麻烦？这就是CSS诞生的契机。反正我先把style设置好写好了，你想要用这个style的时候直接匹配一下就好了。怎么匹配？<br>   这就是CSS中选择器的定义了。CSS中有类选择器。类选择器就是，我定义了这样的一类样式.<br>   格式为： .NN {width:?  Color:?   }<br>   在网页中引用NN样式的表达方式为<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p class=&quot;NN &quot;&gt;A paragraph.&lt;/p&gt; </div></pre></td></tr></table></figure><br>   还有一种叫做id选择器。 Id选择器就是,id叫做一种名字的，我都使用同一种样式。<br>   格式为： #red {color:red;}<br>   在网页中引用red样式的表达方式为 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p id=&quot;red&quot; &gt;A paragraph.&lt;/p&gt; </div></pre></td></tr></table></figure><br>   这是CSS的使用方式。那，CSS的内容是什么？他能定义多少种样式？他的模型是什么样的？<br>我的理解是，首先CSS有一个范围模型。就是W3C提供的盒子模型，包括了外边距、边界、内边距、内容。如图：<br> <img src="http://olthm6a9y.bkt.clouddn.com/ct_boxmodel.gif" alt="ct_boxmodel.gif">；<br>   这个很重要！！！！设置好了我们的盒子大小，才能好好上色和往里面塞东西哇！里面可以塞什么东西呢？<br>   1.背景图 Background(-image;-repeat;-color)<br>   2.边框变酷炫Border<br>   3.字体变酷炫。<br>    这个盒子里面的content内容可以塞样式，border也可以设置样式，但是padding和margin除了设置间隔外没有太多操作的空间。<br>那么CSS除了最基本的设置静态样式以外，能否实现动态样式变化？比如我鼠标移动后，会变成一个新的样子。当然可以啦！使用JavaScript和CSS结合，可以变出很多效果。这个我明天学习的时候再来做记录。<p></p>
+    <content type="html"><![CDATA[<p>  作为一名程序媛，可能做起项目来喜欢直接上手。做网页时，我们可能习惯在网上直接下载已有的好看的CSS模板再对其进行修改，或者是直接用BootStrap的框架，来进行网页的组件式搭建。我们习惯于“拿来主义”，这是网络大环境下给我们带来的便利，也降低了很多事情的门槛。学会使用工具，是一种好的素质，能有效解决问题，不管黑猫白猫能抓住老鼠就是好猫，这是邓爷爷说过的话，我，曾深以为然。<br>做项目时自然是想着快速解决问题就好，但是学东西，我认为不是这样。如果你想真正加入一个领域或者一个行业，你需要学习很多的新的东西，而学习需要基础，前端所有的基础源于html,一种编写网页的脚本语言，而，CSS是什么鬼？ CSS（层叠 Style sheets）层叠的英文单词是啥来着？ Cascading，好的又复习了一下这个单词。<br>以前我们单纯的使用HTML来写网页时，需要改变某个部分的样式时，是这样的，比如是想给我网页中的一段字加黑。HTML中，我们会这样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p style=&quot;font-family:arial;color:red;font-size:20px; font-weight:bold;&quot;&gt;A paragraph.&lt;/p&gt; </div></pre></td></tr></table></figure><br>   </p><p style="font-family:arial;color:red;font-size:20px; font-weight:bold;">A paragraph.</p><br>   可是如果我想要文章中好多地方都加黑，我是不是要在所有加黑的段落前加一段这样的style=”?”这样会不会很麻烦？这就是CSS诞生的契机。反正我先把style设置好写好了，你想要用这个style的时候直接匹配一下就好了。怎么匹配？<br>   这就是CSS中选择器的定义了。CSS中有类选择器。类选择器就是，我定义了这样的一类样式.<br>   格式为： .NN {width:?  Color:?   }<br>   在网页中引用NN样式的表达方式为<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p class=&quot;NN &quot;&gt;A paragraph.&lt;/p&gt; </div></pre></td></tr></table></figure><br>   还有一种叫做id选择器。 Id选择器就是,id叫做一种名字的，我都使用同一种样式。<br>   格式为： #red {color:red;}<br>   在网页中引用red样式的表达方式为 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p id=&quot;red&quot; &gt;A paragraph.&lt;/p&gt; </div></pre></td></tr></table></figure><br>   这是CSS的使用方式。那，CSS的内容是什么？他能定义多少种样式？他的模型是什么样的？<br>我的理解是，首先CSS有一个范围模型。就是W3C提供的盒子模型，包括了外边距、边界、内边距、内容。如图：<br> <img src="http://olthm6a9y.bkt.clouddn.com/ct_boxmodel.gif" alt="ct_boxmodel.gif">；<br>   这个很重要！！！！设置好了我们的盒子大小，才能好好上色和往里面塞东西哇！里面可以塞什么东西呢？<br>   1.背景图 Background(-image;-repeat;-color)<br>   2.边框变酷炫Border<br>   3.字体变酷炫。<br>    这个盒子里面的content内容可以塞样式，border也可以设置样式，但是padding和margin除了设置间隔外没有太多操作的空间。<br>那么CSS除了最基本的设置静态样式以外，能否实现动态样式变化？比如我鼠标移动后，会变成一个新的样子。当然可以啦！使用JavaScript和CSS结合，可以变出很多效果。这个我明天学习的时候再来做记录。<p></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;hr&gt;
-&lt;p&gt;title: css 到底是什么鬼？&lt;br&gt;date: 2017-03-02 14:27:47&lt;br&gt;tags: [技术,前端] —&lt;br&gt;  作为一名程序媛，可能做起项目来喜欢直接上手。做网页时，我们可能习惯在网上直接下载已有的好看的CSS模板再对其进行修改，或
+      &lt;p&gt;  作为一名程序媛，可能做起项目来喜欢直接上手。做网页时，我们可能习惯在网上直接下载已有的好看的CSS模板再对其进行修改，或者是直接用BootStrap的框架，来进行网页的组件式搭建。我们习惯于“拿来主义”，这是网络大环境下给我们带来的便利，也降低了很多事情的门槛。学会使用
     
     </summary>
     
+    
+      <category term="技术" scheme="http://qingyaxian.me/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="前端" scheme="http://qingyaxian.me/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
