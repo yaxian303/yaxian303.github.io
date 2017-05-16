@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qingyaxian.me/"/>
-  <updated>2017-04-10T08:37:30.917Z</updated>
+  <updated>2017-05-16T13:25:45.421Z</updated>
   <id>http://qingyaxian.me/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何搭建一个中英文切换的网站</title>
+    <link href="http://qingyaxian.me/2017/05/16/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E4%B8%AD%E8%8B%B1%E6%96%87%E5%88%87%E6%8D%A2%E7%9A%84%E7%BD%91%E7%AB%99/"/>
+    <id>http://qingyaxian.me/2017/05/16/如何搭建一个中英文切换的网站/</id>
+    <published>2017-05-16T13:02:40.000Z</published>
+    <updated>2017-05-16T13:25:45.421Z</updated>
+    
+    <content type="html"><![CDATA[<p>近日男票让我帮他做一个在线简历。自己弱弱手写的CSS和HTML给他搭了个主页。然后今天说，他要一个双语的网站，本来想着直接复制原网站，再直接修改语言把页面写死，后来又觉得有点low，一点都不符合我一个程序媛的气质。果断决定用一种高大上的方式实现。在网上搜了解决方案，大致是以下几种：</p>
+<blockquote>
+<p>1.自己写2个字典，点击语言切换时，对应的DOM动态加载里面的文字，大概就是jquery+Ajax读json的套路。</p>
+<p>2.用翻译插件。万能的谷歌translator!然而我略不齿这种简单粗暴直接翻。</p>
+<p>3.利用框架+前端后端渲染机制。我表示，前端后端渲染到底是什么鬼？自己又要花好长的时间来了解这个东西。但是在我的广泛搜寻之下。我找到了一种好多人安利的框架。那就是！！！！！那就是i18next。</p>
+</blockquote>
+<p>在我的好奇心以及经过自己的调研之下，我投入了i18next的怀抱。所以今天的博文和明天的博文都是围绕这个美丽可爱的小工具展开的。附上他的github项目地址：</p>
+<blockquote>
+<p><a href="https://github.com/i18next/i18next" target="_blank" rel="external">https://github.com/i18next/i18next</a></p>
+</blockquote>
+<p>所以我今天只是立了个flag对吗？对的，今天开始与这个小可爱好好认识一下。</p>
+<p>加油加油~~</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;近日男票让我帮他做一个在线简历。自己弱弱手写的CSS和HTML给他搭了个主页。然后今天说，他要一个双语的网站，本来想着直接复制原网站，再直接修改语言把页面写死，后来又觉得有点low，一点都不符合我一个程序媛的气质。果断决定用一种高大上的方式实现。在网上搜了解决方案，大致是以
+    
+    </summary>
+    
+    
+      <category term="website" scheme="http://qingyaxian.me/tags/website/"/>
+    
+      <category term="i18next" scheme="http://qingyaxian.me/tags/i18next/"/>
+    
+  </entry>
   
   <entry>
     <title>一个程序媛的自我修养</title>
