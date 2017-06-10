@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qingyaxian.me/"/>
-  <updated>2017-05-16T13:25:45.421Z</updated>
+  <updated>2017-06-10T11:09:51.871Z</updated>
   <id>http://qingyaxian.me/</id>
   
   <author>
@@ -16,11 +16,53 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>利用i18next搭建中英文切换页面</title>
+    <link href="http://qingyaxian.me/2017/06/10/%E5%88%A9%E7%94%A8i18next%E6%90%AD%E5%BB%BA%E4%B8%AD%E8%8B%B1%E6%96%87%E5%88%87%E6%8D%A2%E9%A1%B5%E9%9D%A2/"/>
+    <id>http://qingyaxian.me/2017/06/10/利用i18next搭建中英文切换页面/</id>
+    <published>2017-06-10T10:00:21.000Z</published>
+    <updated>2017-06-10T11:09:51.871Z</updated>
+    
+    <content type="html"><![CDATA[<p>好早之前就解决了这个问题来着，一直没有来的及在博客上记录,今天补上。</p>
+<p>  i18next相当于是一个框架，他能够快速根据div中你自定义的属性，在服务器上查询和赋值。<br>   所以，使用i18next框架，只要遵循以下几步就行了。</p>
+<blockquote>
+<p>1.在网页首页引用i18next的js包<br><code>&lt;script type=&quot;text/javascript&quot; src=&quot;js/i18next-1.11.2.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;js/i18next-1.11.2.min.js&quot;&gt;&lt;/script&gt;</code></p>
+<p>2.在网页中需要翻译的地方div加上data-i18n属性，并为其赋值如<code>&lt;li&gt;&lt;a href=&quot;papers.html&quot; data-i18n=&quot;nav.papers&quot; &gt;&lt;/a&gt;&lt;/li&gt;</code></p>
+<p>3.在服务器上新建locales文件夹存储嵌入网页的文本信息；我是存了一个ch.json,一个en.json，json中的文件格式为：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">&quot;app&quot;:</div><div class="line">    &#123;</div><div class="line">        &quot;name&quot;: &quot;i18next&quot;</div><div class="line">    &#125;,</div><div class="line"></div><div class="line"></div><div class="line">                &quot;nav&quot;: &#123;</div><div class="line">                        &quot;home&quot;: &quot;首页&quot;,</div><div class="line">                        &quot;skills&quot;: &quot;专业技能&quot;,</div><div class="line">                        &quot;programs&quot;: &quot;项目成果&quot;,</div><div class="line">                        &quot;papers&quot;: &quot;发表论文&quot;</div><div class="line">                &#125;</div><div class="line">      &#125;</div></pre></td></tr></table></figure>
+<p>&gt;</p>
+<blockquote>
+<p>4.最重要的一步，就是怎么切换语言包。在你需要触发的事件下，写好一下代码 ，就能实现语言包的切换了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">i18n</div><div class="line">        .init(&#123;</div><div class="line">            lng : &apos;en&apos;,</div><div class="line">            resGetPath : &apos;locales/en.json&apos;</div><div class="line">        &#125;)</div><div class="line">        .done(function() &#123;</div><div class="line">            $(&apos;[data-i18n]&apos;).i18n();</div><div class="line">        &#125;);</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>英文同理。</p>
+<p>&gt;</p>
+<blockquote>
+<p>5.最后的效果图如下：点击首页按钮，可以实现中英文切换</p>
+</blockquote>
+<p><img src="http://olthm6a9y.bkt.clouddn.com/1.png" alt="1.png">；</p>
+<p><img src="http://olthm6a9y.bkt.clouddn.com/2.png" alt="2.png"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;好早之前就解决了这个问题来着，一直没有来的及在博客上记录,今天补上。&lt;/p&gt;
+&lt;p&gt;  i18next相当于是一个框架，他能够快速根据div中你自定义的属性，在服务器上查询和赋值。&lt;br&gt;   所以，使用i18next框架，只要遵循以下几步就行了。&lt;/p&gt;
+&lt;blockqu
+    
+    </summary>
+    
+    
+      <category term="i18next" scheme="http://qingyaxian.me/tags/i18next/"/>
+    
+  </entry>
+  
+  <entry>
     <title>如何搭建一个中英文切换的网站</title>
     <link href="http://qingyaxian.me/2017/05/16/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E4%B8%AD%E8%8B%B1%E6%96%87%E5%88%87%E6%8D%A2%E7%9A%84%E7%BD%91%E7%AB%99/"/>
     <id>http://qingyaxian.me/2017/05/16/如何搭建一个中英文切换的网站/</id>
     <published>2017-05-16T13:02:40.000Z</published>
-    <updated>2017-05-16T13:25:45.421Z</updated>
+    <updated>2017-05-16T13:25:58.637Z</updated>
     
     <content type="html"><![CDATA[<p>近日男票让我帮他做一个在线简历。自己弱弱手写的CSS和HTML给他搭了个主页。然后今天说，他要一个双语的网站，本来想着直接复制原网站，再直接修改语言把页面写死，后来又觉得有点low，一点都不符合我一个程序媛的气质。果断决定用一种高大上的方式实现。在网上搜了解决方案，大致是以下几种：</p>
 <blockquote>
@@ -43,9 +85,9 @@
     </summary>
     
     
-      <category term="website" scheme="http://qingyaxian.me/tags/website/"/>
-    
       <category term="i18next" scheme="http://qingyaxian.me/tags/i18next/"/>
+    
+      <category term="website" scheme="http://qingyaxian.me/tags/website/"/>
     
   </entry>
   

@@ -149,6 +149,74 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-JAVA提取一个字符串中的国家信息" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/22/JAVA提取一个字符串中的国家信息/">JAVA提取一个字符串中的国家信息</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/22/JAVA提取一个字符串中的国家信息/" class="archive-article-date">
+  	<time datetime="2017-02-22T11:36:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>  在网上下载了很多论文的相关信息，一篇论文会提供他的通讯地址。如:”Daniel, M.-P., Groupe Cognition Humaine, LIMSI-CNRS (UPR 3251), Université de Paris-Sud, BP 133, 91403 Orsay Cedex, France; “ ，怎么获取其中的 国家信息呢？<br>  1.首先我在网上下载了世界各国家的英文单词。并把他们添加到了一个.properties文件中。想通过正则表达式进行匹配和抓取，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">//初始化正则</div><div class="line">private static void initPattern() </div><div class="line">&#123; </div><div class="line">  StringBuffer patternBuf = new StringBuffer(&quot;&quot;); </div><div class="line">  try </div><div class="line">  &#123; </div><div class="line">   InputStream in = s04genOtherTables.class.getResourceAsStream(&quot;words.properties&quot;); </div><div class="line">   Properties pro = new Properties(); </div><div class="line">   pro.load(in); </div><div class="line">   Enumeration enu = pro.propertyNames(); </div><div class="line">   patternBuf.append(&quot;(&quot;); </div><div class="line">   while(enu.hasMoreElements()) </div><div class="line">   &#123; </div><div class="line">    patternBuf.append((String)enu.nextElement()+&quot;|&quot;); </div><div class="line">   &#125; </div><div class="line">   patternBuf.deleteCharAt(patternBuf.length()-1); </div><div class="line">   patternBuf.append(&quot;)&quot;); </div><div class="line">  </div><div class="line"></div><div class="line">   pattern = Pattern.compile(new String(patternBuf.toString().getBytes(&quot;ISO-8859-1&quot;), &quot;gb2312&quot;)); </div><div class="line">  &#125; </div><div class="line">  catch(IOException ioEx) </div><div class="line">  &#123; </div><div class="line">   ioEx.printStackTrace(); </div><div class="line">  &#125; </div><div class="line">&#125; </div><div class="line">//过滤实现</div><div class="line">private static String doFilter(String str) </div><div class="line">&#123; int beginId=-1;</div><div class="line">  Matcher m = pattern.matcher(str); </div><div class="line">  //str = m.replaceAll(&quot;&quot;); </div><div class="line">  while (m.find())</div><div class="line">  &#123;	  </div><div class="line">	  str=m.group();</div><div class="line">  &#125;</div><div class="line">  return str;</div><div class="line">&#125; </div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>2.JAVA通过.properties文件的读取来实现Enumeration的实例化。这样可以自动建立正则表达式。但是文件运行的时候出现了问题。由于很多国家是中间有空格的，存储properties文件的时候我一开始是直接复制粘贴，其中也必然带有空格。而在properties文件中，会自动把空格看成key=value的=号，读取时只能读取空格前的key，这样会造成一个问题就是united states进行正则匹配时只能匹配到united.</p>
+<p>3.通过各种查找，我终于找到了解决的办法。就是用转义表示空格。网上有很多种说法，一种是说在空格前加反斜杠如\ ，还有一种是说英文空格\u0020，中文空格是\u3000.经亲测，证实：如果想过滤 的是英文词组，不止是一个英文单词，请用\u0200代替中间的空格存储在properties文件中，就能正常的进行国家匹配和抓取了。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">正则表达式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/22/JAVA提取一个字符串中的国家信息/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-AngularJS-感触" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -640,11 +708,19 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">AngularJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">感悟</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">问题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -660,51 +736,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">随笔，习惯</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">日记，心情</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">website</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">i18next</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">相册</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Android</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">晾晒</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -716,15 +752,47 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">技术，爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">入门</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">心得</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">i18next</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">日记，心情</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">相册</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">website</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">晾晒</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AngularJS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">感悟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">技术，爬虫</a>
               </li>
             
             <div class="clearfix"></div>

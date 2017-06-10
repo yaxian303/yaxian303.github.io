@@ -149,6 +149,87 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-利用i18next搭建中英文切换页面" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/10/利用i18next搭建中英文切换页面/">利用i18next搭建中英文切换页面</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/10/利用i18next搭建中英文切换页面/" class="archive-article-date">
+  	<time datetime="2017-06-10T10:00:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>好早之前就解决了这个问题来着，一直没有来的及在博客上记录,今天补上。</p>
+<p>  i18next相当于是一个框架，他能够快速根据div中你自定义的属性，在服务器上查询和赋值。<br>   所以，使用i18next框架，只要遵循以下几步就行了。</p>
+<blockquote>
+<p>1.在网页首页引用i18next的js包<br><code>&lt;script type=&quot;text/javascript&quot; src=&quot;js/i18next-1.11.2.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;js/i18next-1.11.2.min.js&quot;&gt;&lt;/script&gt;</code></p>
+<p>2.在网页中需要翻译的地方div加上data-i18n属性，并为其赋值如<code>&lt;li&gt;&lt;a href=&quot;papers.html&quot; data-i18n=&quot;nav.papers&quot; &gt;&lt;/a&gt;&lt;/li&gt;</code></p>
+<p>3.在服务器上新建locales文件夹存储嵌入网页的文本信息；我是存了一个ch.json,一个en.json，json中的文件格式为：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">&quot;app&quot;:</div><div class="line">    &#123;</div><div class="line">        &quot;name&quot;: &quot;i18next&quot;</div><div class="line">    &#125;,</div><div class="line"></div><div class="line"></div><div class="line">                &quot;nav&quot;: &#123;</div><div class="line">                        &quot;home&quot;: &quot;首页&quot;,</div><div class="line">                        &quot;skills&quot;: &quot;专业技能&quot;,</div><div class="line">                        &quot;programs&quot;: &quot;项目成果&quot;,</div><div class="line">                        &quot;papers&quot;: &quot;发表论文&quot;</div><div class="line">                &#125;</div><div class="line">      &#125;</div></pre></td></tr></table></figure>
+<p>&gt;</p>
+<blockquote>
+<p>4.最重要的一步，就是怎么切换语言包。在你需要触发的事件下，写好一下代码 ，就能实现语言包的切换了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">i18n</div><div class="line">        .init(&#123;</div><div class="line">            lng : &apos;en&apos;,</div><div class="line">            resGetPath : &apos;locales/en.json&apos;</div><div class="line">        &#125;)</div><div class="line">        .done(function() &#123;</div><div class="line">            $(&apos;[data-i18n]&apos;).i18n();</div><div class="line">        &#125;);</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>英文同理。</p>
+<p>&gt;</p>
+<blockquote>
+<p>5.最后的效果图如下：点击首页按钮，可以实现中英文切换</p>
+</blockquote>
+<p><img src="http://olthm6a9y.bkt.clouddn.com/1.png" alt="1.png">；</p>
+<p><img src="http://olthm6a9y.bkt.clouddn.com/2.png" alt="2.png"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">i18next</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/10/利用i18next搭建中英文切换页面/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-如何搭建一个中英文切换的网站" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -194,11 +275,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">website</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">i18next</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">i18next</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">website</a>
         		</li>
       		
 		</ul>
@@ -766,74 +847,6 @@
 
 
   
-    <article id="post-JAVA提取一个字符串中的国家信息" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/22/JAVA提取一个字符串中的国家信息/">JAVA提取一个字符串中的国家信息</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/22/JAVA提取一个字符串中的国家信息/" class="archive-article-date">
-  	<time datetime="2017-02-22T11:36:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>  在网上下载了很多论文的相关信息，一篇论文会提供他的通讯地址。如:”Daniel, M.-P., Groupe Cognition Humaine, LIMSI-CNRS (UPR 3251), Université de Paris-Sud, BP 133, 91403 Orsay Cedex, France; “ ，怎么获取其中的 国家信息呢？<br>  1.首先我在网上下载了世界各国家的英文单词。并把他们添加到了一个.properties文件中。想通过正则表达式进行匹配和抓取，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">//初始化正则</div><div class="line">private static void initPattern() </div><div class="line">&#123; </div><div class="line">  StringBuffer patternBuf = new StringBuffer(&quot;&quot;); </div><div class="line">  try </div><div class="line">  &#123; </div><div class="line">   InputStream in = s04genOtherTables.class.getResourceAsStream(&quot;words.properties&quot;); </div><div class="line">   Properties pro = new Properties(); </div><div class="line">   pro.load(in); </div><div class="line">   Enumeration enu = pro.propertyNames(); </div><div class="line">   patternBuf.append(&quot;(&quot;); </div><div class="line">   while(enu.hasMoreElements()) </div><div class="line">   &#123; </div><div class="line">    patternBuf.append((String)enu.nextElement()+&quot;|&quot;); </div><div class="line">   &#125; </div><div class="line">   patternBuf.deleteCharAt(patternBuf.length()-1); </div><div class="line">   patternBuf.append(&quot;)&quot;); </div><div class="line">  </div><div class="line"></div><div class="line">   pattern = Pattern.compile(new String(patternBuf.toString().getBytes(&quot;ISO-8859-1&quot;), &quot;gb2312&quot;)); </div><div class="line">  &#125; </div><div class="line">  catch(IOException ioEx) </div><div class="line">  &#123; </div><div class="line">   ioEx.printStackTrace(); </div><div class="line">  &#125; </div><div class="line">&#125; </div><div class="line">//过滤实现</div><div class="line">private static String doFilter(String str) </div><div class="line">&#123; int beginId=-1;</div><div class="line">  Matcher m = pattern.matcher(str); </div><div class="line">  //str = m.replaceAll(&quot;&quot;); </div><div class="line">  while (m.find())</div><div class="line">  &#123;	  </div><div class="line">	  str=m.group();</div><div class="line">  &#125;</div><div class="line">  return str;</div><div class="line">&#125; </div><div class="line"></div></pre></td></tr></table></figure></p>
-<p>2.JAVA通过.properties文件的读取来实现Enumeration的实例化。这样可以自动建立正则表达式。但是文件运行的时候出现了问题。由于很多国家是中间有空格的，存储properties文件的时候我一开始是直接复制粘贴，其中也必然带有空格。而在properties文件中，会自动把空格看成key=value的=号，读取时只能读取空格前的key，这样会造成一个问题就是united states进行正则匹配时只能匹配到united.</p>
-<p>3.通过各种查找，我终于找到了解决的办法。就是用转义表示空格。网上有很多种说法，一种是说在空格前加反斜杠如\ ，还有一种是说英文空格\u0020，中文空格是\u3000.经亲测，证实：如果想过滤 的是英文词组，不止是一个英文单词，请用\u0200代替中间的空格存储在properties文件中，就能正常的进行国家匹配和抓取了。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">正则表达式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/22/JAVA提取一个字符串中的国家信息/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -927,11 +940,19 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">AngularJS</a>
+                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">感悟</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">问题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -947,51 +968,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">随笔，习惯</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">日记，心情</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">website</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">i18next</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">相册</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Android</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">晾晒</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1003,15 +984,47 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">技术，爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">入门</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">心得</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">i18next</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">日记，心情</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">相册</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">website</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">晾晒</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AngularJS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">感悟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">技术，爬虫</a>
               </li>
             
             <div class="clearfix"></div>

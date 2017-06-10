@@ -6,18 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://qingyaxian.me">
-  <title>在博客上创建相册模块 | Qingyaxian&#39;s Blog</title>
+  <title>利用i18next搭建中英文切换页面 | Qingyaxian&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="作为一名伪程序媛，本科的时候做项目写c#写了一年，后来本科毕业自己研究的是安卓，做了一个APP写的自己的毕设，来了武大，居然又开始写java了，跟老板做项目，写了一年多的java后台。在写程序这个方面，觉得自己并不是小白，但是如今，原来java写的后台项目需要做一个可视化平台，这就意味着，我是要入门前端了。前端的我真的是小白一枚。自己看视频，看书，实践，也是摸清了一点点门道。但是前端发展迅速，">
+  <meta name="description" content="好早之前就解决了这个问题来着，一直没有来的及在博客上记录,今天补上。
+  i18next相当于是一个框架，他能够快速根据div中你自定义的属性，在服务器上查询和赋值。   所以，使用i18next框架，只要遵循以下几步就行了。
+
+1.在网页首页引用i18next的js包&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;js/i18next-">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在博客上创建相册模块">
-<meta property="og:url" content="http://qingyaxian.me/2017/02/17/在博客上创建相册模块/index.html">
+<meta property="og:title" content="利用i18next搭建中英文切换页面">
+<meta property="og:url" content="http://qingyaxian.me/2017/06/10/利用i18next搭建中英文切换页面/index.html">
 <meta property="og:site_name" content="Qingyaxian's Blog">
-<meta property="og:description" content="作为一名伪程序媛，本科的时候做项目写c#写了一年，后来本科毕业自己研究的是安卓，做了一个APP写的自己的毕设，来了武大，居然又开始写java了，跟老板做项目，写了一年多的java后台。在写程序这个方面，觉得自己并不是小白，但是如今，原来java写的后台项目需要做一个可视化平台，这就意味着，我是要入门前端了。前端的我真的是小白一枚。自己看视频，看书，实践，也是摸清了一点点门道。但是前端发展迅速，">
-<meta property="og:updated_time" content="2017-02-18T03:13:29.722Z">
+<meta property="og:description" content="好早之前就解决了这个问题来着，一直没有来的及在博客上记录,今天补上。
+  i18next相当于是一个框架，他能够快速根据div中你自定义的属性，在服务器上查询和赋值。   所以，使用i18next框架，只要遵循以下几步就行了。
+
+1.在网页首页引用i18next的js包&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;js/i18next-">
+<meta property="og:image" content="http://olthm6a9y.bkt.clouddn.com/1.png">
+<meta property="og:image" content="http://olthm6a9y.bkt.clouddn.com/2.png">
+<meta property="og:updated_time" content="2017-06-10T11:09:51.871Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在博客上创建相册模块">
-<meta name="twitter:description" content="作为一名伪程序媛，本科的时候做项目写c#写了一年，后来本科毕业自己研究的是安卓，做了一个APP写的自己的毕设，来了武大，居然又开始写java了，跟老板做项目，写了一年多的java后台。在写程序这个方面，觉得自己并不是小白，但是如今，原来java写的后台项目需要做一个可视化平台，这就意味着，我是要入门前端了。前端的我真的是小白一枚。自己看视频，看书，实践，也是摸清了一点点门道。但是前端发展迅速，">
+<meta name="twitter:title" content="利用i18next搭建中英文切换页面">
+<meta name="twitter:description" content="好早之前就解决了这个问题来着，一直没有来的及在博客上记录,今天补上。
+  i18next相当于是一个框架，他能够快速根据div中你自定义的属性，在服务器上查询和赋值。   所以，使用i18next框架，只要遵循以下几步就行了。
+
+1.在网页首页引用i18next的js包&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;js/i18next-">
+<meta name="twitter:image" content="http://olthm6a9y.bkt.clouddn.com/1.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -151,27 +163,46 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-在博客上创建相册模块" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-利用i18next搭建中英文切换页面" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      在博客上创建相册模块
+      利用i18next搭建中英文切换页面
     </h1>
   
 
         
-        <a href="/2017/02/17/在博客上创建相册模块/" class="archive-article-date">
-  	<time datetime="2017-02-17T04:55:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-17</time>
+        <a href="/2017/06/10/利用i18next搭建中英文切换页面/" class="archive-article-date">
+  	<time datetime="2017-06-10T10:00:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>  作为一名伪程序媛，本科的时候做项目写c#写了一年，后来本科毕业自己研究的是安卓，做了一个APP写的自己的毕设，来了武大，居然又开始写java了，跟老板做项目，写了一年多的java后台。在写程序这个方面，觉得自己并不是小白，但是如今，原来java写的后台项目需要做一个可视化平台，这就意味着，我是要入门前端了。前端的我真的是小白一枚。自己看视频，看书，实践，也是摸清了一点点门道。但是前端发展迅速，要学的东西太多了，本着兴趣是最好的老师的原则。我想做一个美美的个人主页，上面可以写我的心情，可以写我的技术，也希望可以记录我的生活。这样子的话，我学起来应该会更幸福一些。<br>  这是我的第二篇博客，我甚至不太懂得怎么排版，但是我想我有了博客，我最希望有的一个功能就是相册。我是一个喜欢拍照的女孩，拍人、拍景、自拍，我都喜欢，我喜欢用照片记录我的生活。那么这篇日记，我要记录我怎么创建第一个属于我自己的相册。<br>       因为选的主题是同一个，所以我参考了以下的网站：<br>        1.<a href="http://www.tuicool.com/articles/fYZ7Zrj" target="_blank" rel="external">http://www.tuicool.com/articles/fYZ7Zrj</a><br>        2.<a href="http://www.cnblogs.com/jarson-7426/p/5515870.html" target="_blank" rel="external">http://www.cnblogs.com/jarson-7426/p/5515870.html</a><br>     讲解的很详细，大家按步骤来就没有什么问题啦~</p>
+        <p>好早之前就解决了这个问题来着，一直没有来的及在博客上记录,今天补上。</p>
+<p>  i18next相当于是一个框架，他能够快速根据div中你自定义的属性，在服务器上查询和赋值。<br>   所以，使用i18next框架，只要遵循以下几步就行了。</p>
+<blockquote>
+<p>1.在网页首页引用i18next的js包<br><code>&lt;script type=&quot;text/javascript&quot; src=&quot;js/i18next-1.11.2.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;js/i18next-1.11.2.min.js&quot;&gt;&lt;/script&gt;</code></p>
+<p>2.在网页中需要翻译的地方div加上data-i18n属性，并为其赋值如<code>&lt;li&gt;&lt;a href=&quot;papers.html&quot; data-i18n=&quot;nav.papers&quot; &gt;&lt;/a&gt;&lt;/li&gt;</code></p>
+<p>3.在服务器上新建locales文件夹存储嵌入网页的文本信息；我是存了一个ch.json,一个en.json，json中的文件格式为：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">&quot;app&quot;:</div><div class="line">    &#123;</div><div class="line">        &quot;name&quot;: &quot;i18next&quot;</div><div class="line">    &#125;,</div><div class="line"></div><div class="line"></div><div class="line">                &quot;nav&quot;: &#123;</div><div class="line">                        &quot;home&quot;: &quot;首页&quot;,</div><div class="line">                        &quot;skills&quot;: &quot;专业技能&quot;,</div><div class="line">                        &quot;programs&quot;: &quot;项目成果&quot;,</div><div class="line">                        &quot;papers&quot;: &quot;发表论文&quot;</div><div class="line">                &#125;</div><div class="line">      &#125;</div></pre></td></tr></table></figure>
+<p>&gt;</p>
+<blockquote>
+<p>4.最重要的一步，就是怎么切换语言包。在你需要触发的事件下，写好一下代码 ，就能实现语言包的切换了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">i18n</div><div class="line">        .init(&#123;</div><div class="line">            lng : &apos;en&apos;,</div><div class="line">            resGetPath : &apos;locales/en.json&apos;</div><div class="line">        &#125;)</div><div class="line">        .done(function() &#123;</div><div class="line">            $(&apos;[data-i18n]&apos;).i18n();</div><div class="line">        &#125;);</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>英文同理。</p>
+<p>&gt;</p>
+<blockquote>
+<p>5.最后的效果图如下：点击首页按钮，可以实现中英文切换</p>
+</blockquote>
+<p><img src="http://olthm6a9y.bkt.clouddn.com/1.png" alt="1.png">；</p>
+<p><img src="http://olthm6a9y.bkt.clouddn.com/2.png" alt="2.png"></p>
 
       
 
@@ -216,7 +247,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">相册</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">i18next</a>
         		</li>
       		
 		</ul>
@@ -272,7 +303,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://qingyaxian.me/2017/02/17/在博客上创建相册模块/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://qingyaxian.me/2017/06/10/利用i18next搭建中英文切换页面/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -286,18 +317,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/02/18/买了一个新发卡，好喜欢/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          买了一个新发卡，好喜欢
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/02/16/利用Hexo搭建个人博客/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">利用Hexo搭建个人博客</div>
+    <a href="/2017/05/16/如何搭建一个中英文切换的网站/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何搭建一个中英文切换的网站</div>
       <i class="icon-circle-right"></i>
     </a>
   
