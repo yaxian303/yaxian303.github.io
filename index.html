@@ -149,6 +149,86 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-百度POI爬虫网页" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/10/百度POI爬虫网页/">百度POI爬虫网页</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/10/百度POI爬虫网页/" class="archive-article-date">
+  	<time datetime="2017-06-10T11:44:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>POI数据对于GIS来说，实在是太重要了，一般机智的我们都选择在各大地图提供商给出的API中获取。但是吼，人家怎么会这么简单就把所有的数据都给你呢？即使你申请了Key,人家就是不把所有的数据给你，你想要的话就自己想办法爬吧。</p>
+<p>所以又是一波斗智斗勇。当我选择使用百度API的localSearch时，我就应该知道，百度不会这么轻易的把我感兴趣的结果一次返回给我，应该很多人都遇到过这个事情，就是返回的result.getPOINums()他只给我们760个数据。这个时候，我们就要采取办法了。</p>
+<p>机智的网友们给出了解决思路，把搜索范围变小，让一个范围里面最多都不会超过760个结果，再用这个窗口去遍历想查询的地图，这样就能获得所有的数据了。</p>
+<p>常见的爬虫一般用Python,对于我这种数据量只在几千条记录的需求，杀鸡焉用牛刀。我们万能的JavaScript就能给出完美的答卷。我想自己写一个网页，爬取深圳市的百度地图POI，利用万能的Chrome浏览器的强大的本地存储功能来存储数据。这里我用到的是可爱的Web SQL。</p>
+<p>我的实现过程如下：</p>
+<p>1.首先，从百度爸爸那边拿到最基本的网页API示例代码，原链接在这里：<a href="http://lbsyun.baidu.com/jsdemo.htm#i1_4" target="_blank" rel="external">http://lbsyun.baidu.com/jsdemo.htm#i1_4</a></p>
+<p>2.作为小白需要了解一下里面的类和接口，返回值，输入参数之类的云云。连接在这里：<a href="http://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference.html" target="_blank" rel="external">http://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference.html</a></p>
+<p>3.既然说了是范围检索，我这里就上一下范围检索的配置代码吧：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var resultArray=[];</div><div class="line">      var options = &#123;</div><div class="line">     pageCapacity : 50</div><div class="line">      &#125;;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">      var  local  = new BMap.LocalSearch(map, options);</div><div class="line">      local.searchInBounds(&quot;停车场&quot;,bs);//范围搜索 关键字</div></pre></td></tr></table></figure>
+<p>4.配置好了，这下子，开始办正事了。我们一般是在local后加回调函数，获取搜索结果。但是这个期间，发生了一点小问题。百度爸爸不慷慨地把getpoi()函数限定在了只能取回当前页码的result项。这个时候，就需要我们积极应对，就是自己来遍历所有的页面啦。我直接上代码了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">local.setSearchCompleteCallback(</div><div class="line">           function(results)&#123;</div><div class="line"></div><div class="line">           // 判断状态是否正确</div><div class="line">           if (local.getStatus() == BMAP_STATUS_SUCCESS)&#123;</div><div class="line">           var totalResults = results.getNumPois();</div><div class="line">           var totalPages = results.getNumPages();</div><div class="line">           var currPage = results.getPageIndex();// 获取当前是第几页数据</div><div class="line">           //alert(&quot;totalResults:&quot; + totalResults);</div><div class="line">           for (let i = 0; i &lt; results.getCurrentNumPois(); i++) &#123;</div><div class="line">               resultArray[50 * currPage + i] = results.getPoi(i);//在当前页面下获取页面中的内容，这里我每页设置显示50个结果，需要的宝宝可以把50改成默认的10，效果是一样的</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           if (results.getPageIndex() &lt; results.getNumPages() - 1) &#123;</div><div class="line">               local.gotoPage(results.getPageIndex() + 1); // 遍历到最后一页之后不再进行下一页搜索，此时，已经获取到全部的搜索结果，</div><div class="line"></div><div class="line">           &#125; else &#123;// 已经到达最后一页</div><div class="line"></div><div class="line">           //这个时候返回的resultArray就是一次搜索的所有结果啦,可以在这里写存数据函数</div><div class="line">           SaveData(resultArray);</div><div class="line"></div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>5.以上是对一个给定的小bound进行范围搜索的代码，我们需要对深圳地区进行遍历搜索，就不可避免地要写for循环了。我直接上代码了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">for (let j = 113.728919; j &lt; 114.528919; j = j + 0.1)</div><div class="line">&#123;  for (let i = 22.461675; i &lt; 22.766513; i = i + 0.1) &#123;</div><div class="line">    &#123;</div><div class="line"></div><div class="line">      var pStart = new BMap.Point(j, i);</div><div class="line">      var pEnd = new BMap.Point(j + 0.1, i + 0.1);</div><div class="line">      var bs = new BMap.Bounds(pStart, pEnd);</div><div class="line"></div><div class="line"></div><div class="line">     SearchPOI(bs);//调用以上的步骤</div><div class="line"></div><div class="line">    &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>6.总感觉少了点什么，那就是我忘了给SaveData的代码了，这里给出伪代码，需要的宝宝们可以去github直接下源码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">savedata(ResultArray)</div><div class="line">&#123; initDase();</div><div class="line"> var db=getCurrentDB();</div><div class="line"> for(var r in ResultArray)</div><div class="line">&#123;</div><div class="line"></div><div class="line">  db.transaction(function (trans) &#123;</div><div class="line">  trans.executeSql(&quot;insert into Test(feildname) values(?) &quot;, [r.value], function (ts, data) &#123;</div><div class="line">                                &#125;, function (ts, message) &#123;</div><div class="line">                                    alert(message);</div><div class="line">                                &#125;);</div><div class="line">                            &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>7.本工具github连接地址：<a href="https://github.com/yaxian303/BaiduPOIJSSpider" target="_blank" rel="external">https://github.com/yaxian303/BaiduPOIJSSpider</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">POI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/10/百度POI爬虫网页/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-利用i18next搭建中英文切换页面" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -775,78 +855,6 @@
 
 
   
-    <article id="post-利用Flex进行地图网页发布" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/24/利用Flex进行地图网页发布/">利用Flex进行地图网页发布</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/24/利用Flex进行地图网页发布/" class="archive-article-date">
-  	<time datetime="2017-02-24T06:05:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Flex工程是在Adobe Flex Builder3.0上建立的，打开、发布工程需要按照以下操作：<br>1、    安装JDK，配置环境变量；<br>2、    安装Flex Builder3.0，配置JDK；<br>3、    安装Tomcat<br>系统开发流程：</p>
-<p><img src="/img/Main.png" alt="Main.png">;<br>配置成功后，启动Flex Builder3.0，新建一个flex工程。Flex 和 Flex builder 就好像 java 和Eclipse的关系。就像在 HTML 中嵌入 JavaScript 那样，在 mxml 里面嵌入 Action Script 代码来实现业务逻辑。Flex 中 mxml 和 Action Script 的关系就好像 Html 和 JavaScript 的关系。 Action Script 语言是面向对象的脚本语言，它连编写方式都和 JavaScript 非常的相似。除了可以嵌套在 mxml 里面之外，它还可以像 JavaScript 写在单独的 .js 文件里面那样写在单独的 .as 文件里面，然后在 mxml 里面引入它。<br>一共写了2个mxml。一个是主页面即地图界面，一个点击云标签，弹出的该国家的奖牌分布的页面。点击国旗，会弹出该国家的小地图。</p>
-<p>原理很简单：<br>一个main网页，2个小网页。实现网页之间的传值。然后可视化。</p>
-<p>最后发布，运行，结果如下：</p>
-<p><img src="/img/main1.jpg" alt="main1.jpg">;</p>
-<p><img src="/img/main2.jpg" alt="main2.jpg">;</p>
-<p><img src="/img/main3.jpg" alt="main3.jpg">;</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Flex</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">地图</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/24/利用Flex进行地图网页发布/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -940,6 +948,22 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AngularJS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">感悟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">JAVA</a>
               </li>
              
@@ -953,14 +977,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1008,23 +1024,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">POI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">技术，爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">晾晒</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">AngularJS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">感悟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">技术，爬虫</a>
               </li>
             
             <div class="clearfix"></div>

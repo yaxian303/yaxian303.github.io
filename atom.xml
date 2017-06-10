@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qingyaxian.me/"/>
-  <updated>2017-06-10T11:09:51.871Z</updated>
+  <updated>2017-06-10T12:06:40.137Z</updated>
   <id>http://qingyaxian.me/</id>
   
   <author>
@@ -14,6 +14,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>百度POI爬虫网页</title>
+    <link href="http://qingyaxian.me/2017/06/10/%E7%99%BE%E5%BA%A6POI%E7%88%AC%E8%99%AB%E7%BD%91%E9%A1%B5/"/>
+    <id>http://qingyaxian.me/2017/06/10/百度POI爬虫网页/</id>
+    <published>2017-06-10T11:44:49.000Z</published>
+    <updated>2017-06-10T12:06:40.137Z</updated>
+    
+    <content type="html"><![CDATA[<p>POI数据对于GIS来说，实在是太重要了，一般机智的我们都选择在各大地图提供商给出的API中获取。但是吼，人家怎么会这么简单就把所有的数据都给你呢？即使你申请了Key,人家就是不把所有的数据给你，你想要的话就自己想办法爬吧。</p>
+<p>所以又是一波斗智斗勇。当我选择使用百度API的localSearch时，我就应该知道，百度不会这么轻易的把我感兴趣的结果一次返回给我，应该很多人都遇到过这个事情，就是返回的result.getPOINums()他只给我们760个数据。这个时候，我们就要采取办法了。</p>
+<p>机智的网友们给出了解决思路，把搜索范围变小，让一个范围里面最多都不会超过760个结果，再用这个窗口去遍历想查询的地图，这样就能获得所有的数据了。</p>
+<p>常见的爬虫一般用Python,对于我这种数据量只在几千条记录的需求，杀鸡焉用牛刀。我们万能的JavaScript就能给出完美的答卷。我想自己写一个网页，爬取深圳市的百度地图POI，利用万能的Chrome浏览器的强大的本地存储功能来存储数据。这里我用到的是可爱的Web SQL。</p>
+<p>我的实现过程如下：</p>
+<p>1.首先，从百度爸爸那边拿到最基本的网页API示例代码，原链接在这里：<a href="http://lbsyun.baidu.com/jsdemo.htm#i1_4" target="_blank" rel="external">http://lbsyun.baidu.com/jsdemo.htm#i1_4</a></p>
+<p>2.作为小白需要了解一下里面的类和接口，返回值，输入参数之类的云云。连接在这里：<a href="http://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference.html" target="_blank" rel="external">http://lbsyun.baidu.com/cms/jsapi/reference/jsapi_reference.html</a></p>
+<p>3.既然说了是范围检索，我这里就上一下范围检索的配置代码吧：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var resultArray=[];</div><div class="line">      var options = &#123;</div><div class="line">     pageCapacity : 50</div><div class="line">      &#125;;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">      var  local  = new BMap.LocalSearch(map, options);</div><div class="line">      local.searchInBounds(&quot;停车场&quot;,bs);//范围搜索 关键字</div></pre></td></tr></table></figure>
+<p>4.配置好了，这下子，开始办正事了。我们一般是在local后加回调函数，获取搜索结果。但是这个期间，发生了一点小问题。百度爸爸不慷慨地把getpoi()函数限定在了只能取回当前页码的result项。这个时候，就需要我们积极应对，就是自己来遍历所有的页面啦。我直接上代码了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">local.setSearchCompleteCallback(</div><div class="line">           function(results)&#123;</div><div class="line"></div><div class="line">           // 判断状态是否正确</div><div class="line">           if (local.getStatus() == BMAP_STATUS_SUCCESS)&#123;</div><div class="line">           var totalResults = results.getNumPois();</div><div class="line">           var totalPages = results.getNumPages();</div><div class="line">           var currPage = results.getPageIndex();// 获取当前是第几页数据</div><div class="line">           //alert(&quot;totalResults:&quot; + totalResults);</div><div class="line">           for (let i = 0; i &lt; results.getCurrentNumPois(); i++) &#123;</div><div class="line">               resultArray[50 * currPage + i] = results.getPoi(i);//在当前页面下获取页面中的内容，这里我每页设置显示50个结果，需要的宝宝可以把50改成默认的10，效果是一样的</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           if (results.getPageIndex() &lt; results.getNumPages() - 1) &#123;</div><div class="line">               local.gotoPage(results.getPageIndex() + 1); // 遍历到最后一页之后不再进行下一页搜索，此时，已经获取到全部的搜索结果，</div><div class="line"></div><div class="line">           &#125; else &#123;// 已经到达最后一页</div><div class="line"></div><div class="line">           //这个时候返回的resultArray就是一次搜索的所有结果啦,可以在这里写存数据函数</div><div class="line">           SaveData(resultArray);</div><div class="line"></div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>5.以上是对一个给定的小bound进行范围搜索的代码，我们需要对深圳地区进行遍历搜索，就不可避免地要写for循环了。我直接上代码了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">for (let j = 113.728919; j &lt; 114.528919; j = j + 0.1)</div><div class="line">&#123;  for (let i = 22.461675; i &lt; 22.766513; i = i + 0.1) &#123;</div><div class="line">    &#123;</div><div class="line"></div><div class="line">      var pStart = new BMap.Point(j, i);</div><div class="line">      var pEnd = new BMap.Point(j + 0.1, i + 0.1);</div><div class="line">      var bs = new BMap.Bounds(pStart, pEnd);</div><div class="line"></div><div class="line"></div><div class="line">     SearchPOI(bs);//调用以上的步骤</div><div class="line"></div><div class="line">    &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>6.总感觉少了点什么，那就是我忘了给SaveData的代码了，这里给出伪代码，需要的宝宝们可以去github直接下源码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">savedata(ResultArray)</div><div class="line">&#123; initDase();</div><div class="line"> var db=getCurrentDB();</div><div class="line"> for(var r in ResultArray)</div><div class="line">&#123;</div><div class="line"></div><div class="line">  db.transaction(function (trans) &#123;</div><div class="line">  trans.executeSql(&quot;insert into Test(feildname) values(?) &quot;, [r.value], function (ts, data) &#123;</div><div class="line">                                &#125;, function (ts, message) &#123;</div><div class="line">                                    alert(message);</div><div class="line">                                &#125;);</div><div class="line">                            &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>7.本工具github连接地址：<a href="https://github.com/yaxian303/BaiduPOIJSSpider" target="_blank" rel="external">https://github.com/yaxian303/BaiduPOIJSSpider</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;POI数据对于GIS来说，实在是太重要了，一般机智的我们都选择在各大地图提供商给出的API中获取。但是吼，人家怎么会这么简单就把所有的数据都给你呢？即使你申请了Key,人家就是不把所有的数据给你，你想要的话就自己想办法爬吧。&lt;/p&gt;
+&lt;p&gt;所以又是一波斗智斗勇。当我选择使用
+    
+    </summary>
+    
+    
+      <category term="爬虫" scheme="http://qingyaxian.me/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="POI" scheme="http://qingyaxian.me/tags/POI/"/>
+    
+  </entry>
   
   <entry>
     <title>利用i18next搭建中英文切换页面</title>
