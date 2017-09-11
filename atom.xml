@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qingyaxian.me/"/>
-  <updated>2017-06-10T12:06:40.137Z</updated>
+  <updated>2017-09-11T08:26:47.073Z</updated>
   <id>http://qingyaxian.me/</id>
   
   <author>
@@ -14,6 +14,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>网络爬虫初探</title>
+    <link href="http://qingyaxian.me/2017/09/07/%E5%89%8D%E7%AB%AF%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%88%9D%E6%8E%A2/"/>
+    <id>http://qingyaxian.me/2017/09/07/前端网络爬虫初探/</id>
+    <published>2017-09-07T02:29:20.000Z</published>
+    <updated>2017-09-11T08:26:47.073Z</updated>
+    
+    <content type="html"><![CDATA[<p>入坑前端以来，了解一个页面从url到DOM加载大概经历了写什么过程。<br>最近需要做一个爬虫，一篇科研论文的发表，会引起很多同领域内的学者的关注。一般在知网或者谷歌学术只能给出文章的被引量，却不能给出具体是哪些文章引用了。  <br><br>而微软学术给出了一个页面，能看到一篇文章被哪些文章所引用了。如果我想要爬取这样的数据，那么我需要进行以下几步。<br></p>
+<h3 id="1-安装phantomjs-phantonjs是好用的前端爬虫工具，是一个仿浏览器框架，Phantom-js是基于webkit的JavaScript-API。它使用QtWebKit作为它核心浏览器的功能，使用webkit来编译解释执行JavaScript代码。任何你可以在基于webkit浏览器做的事情，它都能做到。它不仅是个隐形的浏览器，提供了诸如CSS选择器、支持Web标准、DOM操作、JSON、HTML5、Canvas、SVG等，同时也提供了处理文件I-O的操作，从而使你可以向操作系统读写文件等。"><a href="#1-安装phantomjs-phantonjs是好用的前端爬虫工具，是一个仿浏览器框架，Phantom-js是基于webkit的JavaScript-API。它使用QtWebKit作为它核心浏览器的功能，使用webkit来编译解释执行JavaScript代码。任何你可以在基于webkit浏览器做的事情，它都能做到。它不仅是个隐形的浏览器，提供了诸如CSS选择器、支持Web标准、DOM操作、JSON、HTML5、Canvas、SVG等，同时也提供了处理文件I-O的操作，从而使你可以向操作系统读写文件等。" class="headerlink" title="1.安装phantomjs,phantonjs是好用的前端爬虫工具，是一个仿浏览器框架，Phantom.js是基于webkit的JavaScript API。它使用QtWebKit作为它核心浏览器的功能，使用webkit来编译解释执行JavaScript代码。任何你可以在基于webkit浏览器做的事情，它都能做到。它不仅是个隐形的浏览器，提供了诸如CSS选择器、支持Web标准、DOM操作、JSON、HTML5、Canvas、SVG等，同时也提供了处理文件I/O的操作，从而使你可以向操作系统读写文件等。"></a>1.安装phantomjs,phantonjs是好用的前端爬虫工具，是一个仿浏览器框架，Phantom.js是基于webkit的JavaScript API。它使用QtWebKit作为它核心浏览器的功能，使用webkit来编译解释执行JavaScript代码。任何你可以在基于webkit浏览器做的事情，它都能做到。它不仅是个隐形的浏览器，提供了诸如CSS选择器、支持Web标准、DOM操作、JSON、HTML5、Canvas、SVG等，同时也提供了处理文件I/O的操作，从而使你可以向操作系统读写文件等。<br></h3><h3 id="2-安装CaperJS-但是我在这里使用的是CasperJS，一个基于phantom的更灵活便捷的爬虫小工具，他可以更方便地进行页面之间的跳转和模拟点击、翻页等操作。"><a href="#2-安装CaperJS-但是我在这里使用的是CasperJS，一个基于phantom的更灵活便捷的爬虫小工具，他可以更方便地进行页面之间的跳转和模拟点击、翻页等操作。" class="headerlink" title="2.安装CaperJS,但是我在这里使用的是CasperJS，一个基于phantom的更灵活便捷的爬虫小工具，他可以更方便地进行页面之间的跳转和模拟点击、翻页等操作。"></a>2.安装CaperJS,但是我在这里使用的是CasperJS，一个基于phantom的更灵活便捷的爬虫小工具，他可以更方便地进行页面之间的跳转和模拟点击、翻页等操作。<br></h3><h3 id="3-我的逻辑流程是这样的："><a href="#3-我的逻辑流程是这样的：" class="headerlink" title="3.我的逻辑流程是这样的："></a>3.我的逻辑流程是这样的：<br></h3><blockquote>
+<p>（1）输入文章标题在bing学术中查找对应的论文<br><img src="http://olthm6a9y.bkt.clouddn.com/casper1.png" alt="casper1.png"><br>（2）在搜索的结果中模拟点击第一个link<br><img src="http://olthm6a9y.bkt.clouddn.com/casper2.png" alt="casper2.png"><br>(3)在文章的链接中点击 “引证文献” 按钮， 可以获取引用这篇文章的其他文章的标题。<img src="http://olthm6a9y.bkt.clouddn.com/casper3.png" alt="casper3.png"><br>（4）逐步点击每一篇文章的链接，获取页面左边对应的作者，归属机构等相关信息。<br><img src="http://olthm6a9y.bkt.clouddn.com/casper4.png" alt="casper4.png"><br></p>
+</blockquote>
+<h3 id="4-使用visual-studio-code-ID作为js代码调试与运行环境。"><a href="#4-使用visual-studio-code-ID作为js代码调试与运行环境。" class="headerlink" title="4.使用visual studio code ID作为js代码调试与运行环境。"></a>4.使用visual studio code ID作为js代码调试与运行环境。<br></h3><h3 id="5-代码要点：casperjs-通过-casper-require-‘casper’-create（）来实例化，通过casper-start-url-function-进行链接的定向与处理回调函数。通过casper-evaluate-function-进行网址操作DOM对象的js函数编写。-casper-fill-‘css选择器’，function-）可以对选中的DOM元素进行操作。"><a href="#5-代码要点：casperjs-通过-casper-require-‘casper’-create（）来实例化，通过casper-start-url-function-进行链接的定向与处理回调函数。通过casper-evaluate-function-进行网址操作DOM对象的js函数编写。-casper-fill-‘css选择器’，function-）可以对选中的DOM元素进行操作。" class="headerlink" title="5.代码要点：casperjs 通过 casper = require(‘casper’).create（）来实例化，通过casper.start(url,function())进行链接的定向与处理回调函数。通过casper.evaluate(function())进行网址操作DOM对象的js函数编写。 casper.fill(‘css选择器’，function()）可以对选中的DOM元素进行操作。"></a>5.代码要点：casperjs 通过 casper = require(‘casper’).create（）来实例化，通过casper.start(url,function())进行链接的定向与处理回调函数。通过casper.evaluate(function())进行网址操作DOM对象的js函数编写。 casper.fill(‘css选择器’，function()）可以对选中的DOM元素进行操作。</h3><h3 id="6-按照业务逻辑编写4-每一步的代码并整合。一部分示例代码如下。"><a href="#6-按照业务逻辑编写4-每一步的代码并整合。一部分示例代码如下。" class="headerlink" title="6.按照业务逻辑编写4.每一步的代码并整合。一部分示例代码如下。"></a>6.按照业务逻辑编写4.每一步的代码并整合。一部分示例代码如下。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">//S1 根据Title 获取文章详细页URL</div><div class="line">var articlelink=&quot;&quot;;</div><div class="line">var citedLinks=[];</div><div class="line"></div><div class="line"></div><div class="line">var casper = require(&apos;casper&apos;).create(&#123;</div><div class="line">  </div><div class="line">&#125;);</div><div class="line"></div><div class="line">function getLink() &#123;</div><div class="line">    var link = document.querySelector(&apos;h2 a&apos;);</div><div class="line">     return link.getAttribute(&apos;href&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">casper.start(&apos;https://cn.bing.com/academic/&apos;, function() &#123;</div><div class="line">   // Wait for the page to be loaded</div><div class="line">   this.waitForSelector(&apos;form[action=&quot;/academic/search&quot;]&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">casper.then(function() &#123;</div><div class="line">   // search for &apos;casperjs&apos; from google form</div><div class="line">   this.fill(&apos;form[action=&quot;/academic/search&quot;]&apos;, &#123; q: &apos;Land Use/Cover Changes, the Environment and Water Resources in Northeast China&apos; &#125;, true);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">casper.then(function()&#123;</div><div class="line"> // aggregate results for the &apos;casperjs&apos; search</div><div class="line">    articlelink = this.evaluate(getLink); </div><div class="line">   this.echo(&apos;https://cn.bing.com&apos;+articlelink);</div><div class="line">   articlelink=&apos;https://cn.bing.com&apos;+articlelink;</div><div class="line">  this.exit();</div><div class="line">&#125;);</div><div class="line"> </div><div class="line"></div><div class="line">casper.run(function() &#123;</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;入坑前端以来，了解一个页面从url到DOM加载大概经历了写什么过程。&lt;br&gt;最近需要做一个爬虫，一篇科研论文的发表，会引起很多同领域内的学者的关注。一般在知网或者谷歌学术只能给出文章的被引量，却不能给出具体是哪些文章引用了。  &lt;br&gt;&lt;br&gt;而微软学术给出了一个页面，能看
+    
+    </summary>
+    
+    
+      <category term="爬虫" scheme="http://qingyaxian.me/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="CasperJS" scheme="http://qingyaxian.me/tags/CasperJS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我的第一个Angular工工程</title>
+    <link href="http://qingyaxian.me/2017/06/21/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AAAngular%E5%B7%A5%E5%B7%A5%E7%A8%8B/"/>
+    <id>http://qingyaxian.me/2017/06/21/我的第一个Angular工工程/</id>
+    <published>2017-06-21T13:01:13.000Z</published>
+    <updated>2017-06-21T13:01:13.886Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>百度POI爬虫网页</title>

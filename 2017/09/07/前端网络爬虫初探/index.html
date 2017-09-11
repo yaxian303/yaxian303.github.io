@@ -6,14 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://qingyaxian.me">
-  <title>Tag: 随笔，习惯 | Qingyaxian&#39;s Blog</title>
+  <title>网络爬虫初探 | Qingyaxian&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Qingyaxian's Blog">
-<meta property="og:url" content="http://qingyaxian.me/tags/随笔，习惯/index.html">
+  <meta name="description" content="入坑前端以来，了解一个页面从url到DOM加载大概经历了写什么过程。最近需要做一个爬虫，一篇科研论文的发表，会引起很多同领域内的学者的关注。一般在知网或者谷歌学术只能给出文章的被引量，却不能给出具体是哪些文章引用了。  而微软学术给出了一个页面，能看到一篇文章被哪些文章所引用了。如果我想要爬取这样的数据，那么我需要进行以下几步。
+1.安装phantomjs,phantonjs是好用的前端爬虫工具，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络爬虫初探">
+<meta property="og:url" content="http://qingyaxian.me/2017/09/07/前端网络爬虫初探/index.html">
 <meta property="og:site_name" content="Qingyaxian's Blog">
+<meta property="og:description" content="入坑前端以来，了解一个页面从url到DOM加载大概经历了写什么过程。最近需要做一个爬虫，一篇科研论文的发表，会引起很多同领域内的学者的关注。一般在知网或者谷歌学术只能给出文章的被引量，却不能给出具体是哪些文章引用了。  而微软学术给出了一个页面，能看到一篇文章被哪些文章所引用了。如果我想要爬取这样的数据，那么我需要进行以下几步。
+1.安装phantomjs,phantonjs是好用的前端爬虫工具，">
+<meta property="og:image" content="http://olthm6a9y.bkt.clouddn.com/casper1.png">
+<meta property="og:image" content="http://olthm6a9y.bkt.clouddn.com/casper2.png">
+<meta property="og:image" content="http://olthm6a9y.bkt.clouddn.com/casper3.png">
+<meta property="og:image" content="http://olthm6a9y.bkt.clouddn.com/casper4.png">
+<meta property="og:updated_time" content="2017-09-11T08:26:47.073Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Qingyaxian's Blog">
+<meta name="twitter:title" content="网络爬虫初探">
+<meta name="twitter:description" content="入坑前端以来，了解一个页面从url到DOM加载大概经历了写什么过程。最近需要做一个爬虫，一篇科研论文的发表，会引起很多同领域内的学者的关注。一般在知网或者谷歌学术只能给出文章的被引量，却不能给出具体是哪些文章引用了。  而微软学术给出了一个页面，能看到一篇文章被哪些文章所引用了。如果我想要爬取这样的数据，那么我需要进行以下几步。
+1.安装phantomjs,phantonjs是好用的前端爬虫工具，">
+<meta name="twitter:image" content="http://olthm6a9y.bkt.clouddn.com/casper1.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -147,60 +159,166 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-前端网络爬虫初探" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/10/一个程序媛的自我修养/" class="archive-article-date">
-  	<time datetime="2017-04-10T06:55:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-10</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/10/一个程序媛的自我修养/">一个程序媛的自我修养</a>
+    <h1 class="article-title" itemprop="name">
+      网络爬虫初探
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/09/07/前端网络爬虫初探/" class="archive-article-date">
+  	<time datetime="2017-09-07T02:29:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>入坑前端以来，了解一个页面从url到DOM加载大概经历了写什么过程。<br>最近需要做一个爬虫，一篇科研论文的发表，会引起很多同领域内的学者的关注。一般在知网或者谷歌学术只能给出文章的被引量，却不能给出具体是哪些文章引用了。  <br><br>而微软学术给出了一个页面，能看到一篇文章被哪些文章所引用了。如果我想要爬取这样的数据，那么我需要进行以下几步。<br></p>
+<h3 id="1-安装phantomjs-phantonjs是好用的前端爬虫工具，是一个仿浏览器框架，Phantom-js是基于webkit的JavaScript-API。它使用QtWebKit作为它核心浏览器的功能，使用webkit来编译解释执行JavaScript代码。任何你可以在基于webkit浏览器做的事情，它都能做到。它不仅是个隐形的浏览器，提供了诸如CSS选择器、支持Web标准、DOM操作、JSON、HTML5、Canvas、SVG等，同时也提供了处理文件I-O的操作，从而使你可以向操作系统读写文件等。"><a href="#1-安装phantomjs-phantonjs是好用的前端爬虫工具，是一个仿浏览器框架，Phantom-js是基于webkit的JavaScript-API。它使用QtWebKit作为它核心浏览器的功能，使用webkit来编译解释执行JavaScript代码。任何你可以在基于webkit浏览器做的事情，它都能做到。它不仅是个隐形的浏览器，提供了诸如CSS选择器、支持Web标准、DOM操作、JSON、HTML5、Canvas、SVG等，同时也提供了处理文件I-O的操作，从而使你可以向操作系统读写文件等。" class="headerlink" title="1.安装phantomjs,phantonjs是好用的前端爬虫工具，是一个仿浏览器框架，Phantom.js是基于webkit的JavaScript API。它使用QtWebKit作为它核心浏览器的功能，使用webkit来编译解释执行JavaScript代码。任何你可以在基于webkit浏览器做的事情，它都能做到。它不仅是个隐形的浏览器，提供了诸如CSS选择器、支持Web标准、DOM操作、JSON、HTML5、Canvas、SVG等，同时也提供了处理文件I/O的操作，从而使你可以向操作系统读写文件等。"></a>1.安装phantomjs,phantonjs是好用的前端爬虫工具，是一个仿浏览器框架，Phantom.js是基于webkit的JavaScript API。它使用QtWebKit作为它核心浏览器的功能，使用webkit来编译解释执行JavaScript代码。任何你可以在基于webkit浏览器做的事情，它都能做到。它不仅是个隐形的浏览器，提供了诸如CSS选择器、支持Web标准、DOM操作、JSON、HTML5、Canvas、SVG等，同时也提供了处理文件I/O的操作，从而使你可以向操作系统读写文件等。<br></h3><h3 id="2-安装CaperJS-但是我在这里使用的是CasperJS，一个基于phantom的更灵活便捷的爬虫小工具，他可以更方便地进行页面之间的跳转和模拟点击、翻页等操作。"><a href="#2-安装CaperJS-但是我在这里使用的是CasperJS，一个基于phantom的更灵活便捷的爬虫小工具，他可以更方便地进行页面之间的跳转和模拟点击、翻页等操作。" class="headerlink" title="2.安装CaperJS,但是我在这里使用的是CasperJS，一个基于phantom的更灵活便捷的爬虫小工具，他可以更方便地进行页面之间的跳转和模拟点击、翻页等操作。"></a>2.安装CaperJS,但是我在这里使用的是CasperJS，一个基于phantom的更灵活便捷的爬虫小工具，他可以更方便地进行页面之间的跳转和模拟点击、翻页等操作。<br></h3><h3 id="3-我的逻辑流程是这样的："><a href="#3-我的逻辑流程是这样的：" class="headerlink" title="3.我的逻辑流程是这样的："></a>3.我的逻辑流程是这样的：<br></h3><blockquote>
+<p>（1）输入文章标题在bing学术中查找对应的论文<br><img src="http://olthm6a9y.bkt.clouddn.com/casper1.png" alt="casper1.png"><br>（2）在搜索的结果中模拟点击第一个link<br><img src="http://olthm6a9y.bkt.clouddn.com/casper2.png" alt="casper2.png"><br>(3)在文章的链接中点击 “引证文献” 按钮， 可以获取引用这篇文章的其他文章的标题。<img src="http://olthm6a9y.bkt.clouddn.com/casper3.png" alt="casper3.png"><br>（4）逐步点击每一篇文章的链接，获取页面左边对应的作者，归属机构等相关信息。<br><img src="http://olthm6a9y.bkt.clouddn.com/casper4.png" alt="casper4.png"><br></p>
+</blockquote>
+<h3 id="4-使用visual-studio-code-ID作为js代码调试与运行环境。"><a href="#4-使用visual-studio-code-ID作为js代码调试与运行环境。" class="headerlink" title="4.使用visual studio code ID作为js代码调试与运行环境。"></a>4.使用visual studio code ID作为js代码调试与运行环境。<br></h3><h3 id="5-代码要点：casperjs-通过-casper-require-‘casper’-create（）来实例化，通过casper-start-url-function-进行链接的定向与处理回调函数。通过casper-evaluate-function-进行网址操作DOM对象的js函数编写。-casper-fill-‘css选择器’，function-）可以对选中的DOM元素进行操作。"><a href="#5-代码要点：casperjs-通过-casper-require-‘casper’-create（）来实例化，通过casper-start-url-function-进行链接的定向与处理回调函数。通过casper-evaluate-function-进行网址操作DOM对象的js函数编写。-casper-fill-‘css选择器’，function-）可以对选中的DOM元素进行操作。" class="headerlink" title="5.代码要点：casperjs 通过 casper = require(‘casper’).create（）来实例化，通过casper.start(url,function())进行链接的定向与处理回调函数。通过casper.evaluate(function())进行网址操作DOM对象的js函数编写。 casper.fill(‘css选择器’，function()）可以对选中的DOM元素进行操作。"></a>5.代码要点：casperjs 通过 casper = require(‘casper’).create（）来实例化，通过casper.start(url,function())进行链接的定向与处理回调函数。通过casper.evaluate(function())进行网址操作DOM对象的js函数编写。 casper.fill(‘css选择器’，function()）可以对选中的DOM元素进行操作。</h3><h3 id="6-按照业务逻辑编写4-每一步的代码并整合。一部分示例代码如下。"><a href="#6-按照业务逻辑编写4-每一步的代码并整合。一部分示例代码如下。" class="headerlink" title="6.按照业务逻辑编写4.每一步的代码并整合。一部分示例代码如下。"></a>6.按照业务逻辑编写4.每一步的代码并整合。一部分示例代码如下。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">//S1 根据Title 获取文章详细页URL</div><div class="line">var articlelink=&quot;&quot;;</div><div class="line">var citedLinks=[];</div><div class="line"></div><div class="line"></div><div class="line">var casper = require(&apos;casper&apos;).create(&#123;</div><div class="line">  </div><div class="line">&#125;);</div><div class="line"></div><div class="line">function getLink() &#123;</div><div class="line">    var link = document.querySelector(&apos;h2 a&apos;);</div><div class="line">     return link.getAttribute(&apos;href&apos;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">casper.start(&apos;https://cn.bing.com/academic/&apos;, function() &#123;</div><div class="line">   // Wait for the page to be loaded</div><div class="line">   this.waitForSelector(&apos;form[action=&quot;/academic/search&quot;]&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">casper.then(function() &#123;</div><div class="line">   // search for &apos;casperjs&apos; from google form</div><div class="line">   this.fill(&apos;form[action=&quot;/academic/search&quot;]&apos;, &#123; q: &apos;Land Use/Cover Changes, the Environment and Water Resources in Northeast China&apos; &#125;, true);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">casper.then(function()&#123;</div><div class="line"> // aggregate results for the &apos;casperjs&apos; search</div><div class="line">    articlelink = this.evaluate(getLink); </div><div class="line">   this.echo(&apos;https://cn.bing.com&apos;+articlelink);</div><div class="line">   articlelink=&apos;https://cn.bing.com&apos;+articlelink;</div><div class="line">  this.exit();</div><div class="line">&#125;);</div><div class="line"> </div><div class="line"></div><div class="line">casper.run(function() &#123;</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你这么大方<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechatpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">随笔，习惯</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CasperJS</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://qingyaxian.me/2017/09/07/前端网络爬虫初探/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/06/21/我的第一个Angular工工程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">我的第一个Angular工工程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -223,9 +341,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
