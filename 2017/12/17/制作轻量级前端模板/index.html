@@ -18,7 +18,7 @@
 <meta property="og:description" content="很久没有更新博客了，这段时间，自己好像过的有点不清醒。一直在想自己想要什么，以后要做什么，零零散散学了许多技术，也在想自己的毕设怎么做。看着看着，做着做着，仿佛有了一点点思路。
 这几天在给祁教授做他的个人网站，又巩固了一些JS和HTML等基础技术。只有不断遇到问题，解决问题，书本上看到的那些知识才能真正被自己消化。以下是我这几天的一点点感触。
 1.给祁教授做的个人网站是基于BootStrap做的，">
-<meta property="og:updated_time" content="2017-12-17T09:55:15.239Z">
+<meta property="og:updated_time" content="2017-12-17T11:56:28.030Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="制作轻量级前端模板">
 <meta name="twitter:description" content="很久没有更新博客了，这段时间，自己好像过的有点不清醒。一直在想自己想要什么，以后要做什么，零零散散学了许多技术，也在想自己的毕设怎么做。看着看着，做着做着，仿佛有了一点点思路。
@@ -215,7 +215,13 @@ if(img.complete){
   return ;
   }
   } 
-</code></pre><p>3.昨天他问我，能不能用一个网页模板，每次显示不同的文章信息，主要是内容不同，但是格式相同。我说当然可以啦，用前端模板引擎呀，Angular /Vue/React这些都能做，反正都是控制和视图分离嘛。后来我就想，其实他的需求非常简单，我没有必要为了他这个小需求，又引入Angular这些功能强大的框架，然后机智的我，在万能的网络上找到了答案。经过几番对比，我使用了Mustache.js这个只有几十K的js小工具，几行代码完成了他想要的功能。觉得需求才是推动进步的原动力好吗？他没有问我的时候，我才不会care template是什么鬼呢。感觉今天学到了许多，挺好的。</p>
+</code></pre><p>3.今天超级值得记录的一个小问题。我用了Bootstrap的导航栏浮动在最上方的样式。nav-fixed-top这个样式能让导航栏一直浮动在浏览器最上方，但是吼，我点击a标签进行定位的时候就出现了问题。因为点击a标签，导航至本页面的div他会默认置顶，而这个时候，导航栏就会残忍地挡住我们想看的东西。找了很多方法，最后在这篇博文中获得了解决方案。（-<a href="http://www.ifyoung.net/personal-experience/javascripts/javascript-affix/" target="_blank" rel="external">http://www.ifyoung.net/personal-experience/javascripts/javascript-affix/</a>-）谢谢这位作者的分享，让我没有这么难过，结合我的代码结构，我改成了这个样子，很顺利的成功了。现在我的导航栏很好看又很方便。</p>
+<pre><code> //点击超链接的话置顶时下移50px,防止 nav 遮挡住每个子模块
+$(&apos;.dropdown-menu a&apos;).click(function(){
+var ps = $($(this).attr(&apos;href&apos;)).offset().top-50;
+ $(&apos;html,body&apos;).animate({scrollTop:ps}, 300)
+ });
+</code></pre><p>4.昨天他问我，能不能用一个网页模板，每次显示不同的文章信息，主要是内容不同，但是格式相同。我说当然可以啦，用前端模板引擎呀，Angular /Vue/React这些都能做，反正都是控制和视图分离嘛。后来我就想，其实他的需求非常简单，我没有必要为了他这个小需求，又引入Angular这些功能强大的框架，然后机智的我，在万能的网络上找到了答案。经过几番对比，我使用了Mustache.js这个只有几十K的js小工具，几行代码完成了他想要的功能。觉得需求才是推动进步的原动力好吗？他没有问我的时候，我才不会care template是什么鬼呢。感觉今天学到了许多，挺好的。</p>
 <pre><code>var tpl=document.getElementById(&apos;template&apos;).innerHTML.trim();
 Mustache.parse(tpl);
 var output=Mustache.render(tpl,paper);
@@ -458,14 +464,6 @@ result.innerHTML=output;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技术</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
@@ -474,7 +472,11 @@ result.innerHTML=output;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -482,15 +484,11 @@ result.innerHTML=output;
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Flex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">地图</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -502,11 +500,19 @@ result.innerHTML=output;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">i18next</a>
+                <a href="javascript:void(0)" class="js-tag color5">前端优化</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">前端优化</a>
+                <a href="javascript:void(0)" class="js-tag color5">Flex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">地图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">i18next</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,15 +524,15 @@ result.innerHTML=output;
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">website</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">日记，心情</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">相册</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">website</a>
+                <a href="javascript:void(0)" class="js-tag color4">POI</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -538,7 +544,7 @@ result.innerHTML=output;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">POI</a>
+                <a href="javascript:void(0)" class="js-tag color3">相册</a>
               </li>
              
               <li class="article-tag-list-item">
