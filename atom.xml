@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://qingyaxian.me/"/>
-  <updated>2017-09-11T08:26:47.073Z</updated>
+  <updated>2017-12-17T09:55:15.239Z</updated>
   <id>http://qingyaxian.me/</id>
   
   <author>
@@ -14,6 +14,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>制作轻量级前端模板</title>
+    <link href="http://qingyaxian.me/2017/12/17/%E5%88%B6%E4%BD%9C%E8%BD%BB%E9%87%8F%E7%BA%A7%E5%89%8D%E7%AB%AF%E6%A8%A1%E6%9D%BF/"/>
+    <id>http://qingyaxian.me/2017/12/17/制作轻量级前端模板/</id>
+    <published>2017-12-17T09:11:46.000Z</published>
+    <updated>2017-12-17T09:55:15.239Z</updated>
+    
+    <content type="html"><![CDATA[<p>很久没有更新博客了，这段时间，自己好像过的有点不清醒。一直在想自己想要什么，以后要做什么，零零散散学了许多技术，也在想自己的毕设怎么做。看着看着，做着做着，仿佛有了一点点思路。</p>
+<p>这几天在给祁教授做他的个人网站，又巩固了一些JS和HTML等基础技术。只有不断遇到问题，解决问题，书本上看到的那些知识才能真正被自己消化。以下是我这几天的一点点感触。</p>
+<p>1.给祁教授做的个人网站是基于BootStrap做的，其中遇到了很多小问题，比如导航栏置顶，nav -fixxed-top这一个属性是把导航栏置顶的，但是怎么样让滚动到下面时置顶的样式和最开始的样式有所区别呢？我写了个js函数：</p>
+<pre><code> ///滚动页面更改导航栏样式
+(function($) {
+ &quot;use strict&quot;; // Start of use strict
+ // Collapse the navbar when page is scrolled
+ $(window).scroll(function() {
+     if ($(&quot;#mainNav&quot;).offset().top &gt; 75) {
+         $(&quot;#mainNav&quot;).addClass(&quot;navbar-shrink&quot;);
+         $(&quot;#mainNavmainNavInner&quot;).addClass(&quot;navbar-shrink&quot;);
+
+
+     } else {
+         $(&quot;#mainNav&quot;).removeClass(&quot;navbar-shrink&quot;);
+         $(&quot;#mainNavmainNavInner&quot;).removeClass(&quot;navbar-shrink&quot;);
+     }
+ });
+
+ })(jQuery); 
+</code></pre><p>2.还有，给他的网站设了个高清的背景图片导致加载太慢了，这个时候就要考虑图片预加载的方法以及提升前端性能的方法。最后我采用了无损压缩图片以及使用缓存和预加载三管齐下的方法，结果当然是好的结果啦。</p>
+<pre><code>window.onload = function() {
+ preLoadImg(&quot;img/wallPaper.png&quot;);
+ }
+
+ function preLoadImg(url) { 
+ var img = new Image(); 
+     img.src = url; 
+if(img.complete){
+  return ;
+  }
+  } 
+</code></pre><p>3.昨天他问我，能不能用一个网页模板，每次显示不同的文章信息，主要是内容不同，但是格式相同。我说当然可以啦，用前端模板引擎呀，Angular /Vue/React这些都能做，反正都是控制和视图分离嘛。后来我就想，其实他的需求非常简单，我没有必要为了他这个小需求，又引入Angular这些功能强大的框架，然后机智的我，在万能的网络上找到了答案。经过几番对比，我使用了Mustache.js这个只有几十K的js小工具，几行代码完成了他想要的功能。觉得需求才是推动进步的原动力好吗？他没有问我的时候，我才不会care template是什么鬼呢。感觉今天学到了许多，挺好的。</p>
+<pre><code>var tpl=document.getElementById(&apos;template&apos;).innerHTML.trim();
+Mustache.parse(tpl);
+var output=Mustache.render(tpl,paper);
+var  result = document.querySelector(&apos;.container&apos;);
+result.innerHTML=output;
+</code></pre><p>By the way,这个星期Java 代码规范 培训的心得也想记录下。其实写什么代码都是相通的，代码要规范、命名规范、排版整洁，算法适用，这些都需要自己有意识地去培养。希望以后的自己写的代码越来越好看，从低级程序媛向中高级前进！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;很久没有更新博客了，这段时间，自己好像过的有点不清醒。一直在想自己想要什么，以后要做什么，零零散散学了许多技术，也在想自己的毕设怎么做。看着看着，做着做着，仿佛有了一点点思路。&lt;/p&gt;
+&lt;p&gt;这几天在给祁教授做他的个人网站，又巩固了一些JS和HTML等基础技术。只有不断遇到
+    
+    </summary>
+    
+    
+      <category term="前端优化" scheme="http://qingyaxian.me/tags/%E5%89%8D%E7%AB%AF%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
   
   <entry>
     <title>网络爬虫初探</title>
@@ -540,35 +600,6 @@
       <category term="入门" scheme="http://qingyaxian.me/tags/%E5%85%A5%E9%97%A8/"/>
     
       <category term="心得" scheme="http://qingyaxian.me/tags/%E5%BF%83%E5%BE%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>我要晒被子APP</title>
-    <link href="http://qingyaxian.me/2017/02/16/%E6%88%91%E8%A6%81%E6%99%92%E8%A2%AB%E5%AD%90/"/>
-    <id>http://qingyaxian.me/2017/02/16/我要晒被子/</id>
-    <published>2017-02-16T06:51:58.000Z</published>
-    <updated>2017-02-23T09:07:04.808Z</updated>
-    
-    <content type="html"><![CDATA[<p>本科在南京，南京多阴雨天气，位于长江边，气候湿润，促进衣物和被子的发霉过程。令人很是懊恼。但是，总有天晴的时候，这个时候晒被子显得尤为重要，在哪里晒被子最好？晒多长时间？这是我在思考的问题。我就开发了这样一个APP。集成天气预报、晾晒服务为一体，为南京的宝宝们解决晒被子的大问题。</p>
-<a id="more"></a>
-<p>系统设计如下图：<br><img src="/img/ppp1.png" alt="ppp1.png"><br>设计的UI 如下：</p>
-<p><img src="/img/Picture5.png" alt="Picture5.png">;<img src="/img/Picture6.png" alt="Picture6.png">;<img src="/img/Picture7.png" alt="Picture7.png">;<br><img src="/img/Picture8.png" alt="Picture8.png">;<img src="/img/Picture9.png" alt="Picture9.png">;</p>
-<p>在GDAL上找到了山体阴影计算的算法，把c++翻译为了java，得到了计算实时阴影的算法，最后可以得到像这样 的效果。</p>
-<p><img src="/img/hillshade1.png" alt="hillshade1.png">;<br>由于算法不够精确，并未在安卓市场上发布，代码和工程在github上：</p>
-<p><a href="https://github.com/yaxian303/TestUI" target="_blank" rel="external">https://github.com/yaxian303/TestUI</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本科在南京，南京多阴雨天气，位于长江边，气候湿润，促进衣物和被子的发霉过程。令人很是懊恼。但是，总有天晴的时候，这个时候晒被子显得尤为重要，在哪里晒被子最好？晒多长时间？这是我在思考的问题。我就开发了这样一个APP。集成天气预报、晾晒服务为一体，为南京的宝宝们解决晒被子的大问题。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Android" scheme="http://qingyaxian.me/tags/Android/"/>
-    
-      <category term="晾晒" scheme="http://qingyaxian.me/tags/%E6%99%BE%E6%99%92/"/>
     
   </entry>
   
